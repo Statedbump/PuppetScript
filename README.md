@@ -9,6 +9,7 @@ Unity is a cross-platform video game engine developed by Unity Technologies. As 
 Since Unity's primary scripting API is in C#, some people can find themselves stuck in the process of creating scripts regardless of their programming knowledge. With the use of ___ , users will be able to easily hop over one of the main hurdles found in scripting, three-dimensional player movement. This language features easy to learn functions which can be used by new and experienced developers alike. 
 
 
+
 # About the Language
 
 ## Language Features
@@ -20,7 +21,7 @@ The ___ language has the purpose of bringing simplicity to its users in order fo
 * Functions that cut off the need for long and hard to learn movement customization scripts
 
 ## Approach
-
+ <a href="https://imgur.com/UzlzF7n"><img src="https://i.imgur.com/UzlzF7n.png" title="source: imgur.com" /></a>
 
 ##### The PLProject Architecture works the following way:
 
@@ -30,12 +31,13 @@ The ___ language has the purpose of bringing simplicity to its users in order fo
 4.
 ...
 
+
 # Learning ___ !
 
 ## Video Tutorial
 
-Following is a video tutorial on how to install and use the PLProject translator. 
-...
+Following is a video tutorial on how to install and use the PLProject translator:
+Youtube link or embed goes here
 
 ## Language tutorial
 
@@ -44,6 +46,7 @@ Click [here](https://github.com/jeanrodriguez27/PLProject/wiki/Language-Tutorial
 ## Reference Manual
 
 Click [here](https://github.com/jeanrodriguez27/PLProject/wiki/Reference-Manual) to go to the Reference Manual.
+
 
 
 # Contributors
