@@ -1,7 +1,9 @@
 from _testcapi import raise_exception
 
 import ply.yacc as yacc
+import CodeLexer
 
+tokensList = CodeLexer.tokens
 
 def script_type(s):
     '''script : Simple

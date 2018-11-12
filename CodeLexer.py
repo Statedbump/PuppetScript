@@ -94,17 +94,18 @@ def t_SIMPLE(t):
     return t
 
 	
-	
 def t_RIGIDBODY(t):
-	r'RIGIDBODY'
+    r'RIGIDBODY'
     t.value = 'RIGIDBODY'
     return t
-	
+
+
 def t_CHARACTERCONTROLLER(t):
-	r'CHARACTERCONTROLLER'
+    r'CHARACTERCONTROLLER'
     t.value = 'CHARACTERCONTROLLER'
     return t
-	
+
+
 	
 	#Special IDs
 def t_Speed(t):
@@ -365,9 +366,9 @@ def t_KeyCode_RightWindows(t):
     r'KeyCode.RightWindows'
     t.value = 'KeyCode_RightWindows'
     return t
-def t_KeyCode_AltGr'(t):
-    r'KeyCode.AltGr''
-    t.value = 'KeyCode_AltGr''
+def t_KeyCode_AltGr(t):
+    r'KeyCode.AltGr'
+    t.value = 'KeyCode_AltGr'
     return t
 
 def t_KeyCode_Help(t):
