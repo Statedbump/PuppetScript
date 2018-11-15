@@ -32,7 +32,7 @@ tokens = [
 	'NONE',
 	
 	#Actions
-	'JUMP','DASH','JETPACK'
+	'JUMP','DASH','JETPACK',
 	
 	#Forces
 	'Force','Impulse','Acceleration',
@@ -70,8 +70,8 @@ tokens = [
     'KeyCode_BackQuote',
 	#Letters
 	'KeyCode_A','KeyCode_B','KeyCode_C','KeyCode_D','KeyCode_E','KeyCode_F','KeyCode_G',
-	'KeyCode_H','KeyCode_I','KeyCode_J','KeyCode_K','KeyCode_L','KeyCode_M','KeyCode_N'
-	'KeyCode_O','KeyCode_P','KeyCode_Q','KeyCode_R','KeyCode_S','KeyCode_T','KeyCode_U'
+	'KeyCode_H','KeyCode_I','KeyCode_J','KeyCode_K','KeyCode_L','KeyCode_M','KeyCode_N',
+	'KeyCode_O','KeyCode_P','KeyCode_Q','KeyCode_R','KeyCode_S','KeyCode_T','KeyCode_U',
 	'KeyCode_V','KeyCode_W','KeyCode_X','KeyCode_Y','KeyCode_Z'
 	
 	
@@ -101,23 +101,18 @@ def t_CHARACTERCONTROLLER(t):
     t.value = 'CHARACTERCONTROLLER'
     return t
 
-
-	
-	#Special IDs
-def t_Speed(t):
-    r'Speed'
-    t.value = 'Speed'
-    return t
-
-def t_Gravity(t):
-    r'Gravity'
-    t.value = 'Gravity'
-    return t	
-
 	#Movement
 def t_Horizontal(t):
     r'Horizontal'
     t.type = 'Horizontal'
+    return t
+def t_Gravity(t):
+    r'Gravity'
+    t.type = 'Gravity'
+    return t
+def t_Speed(t):
+    r'Speed'
+    t.type = 'Speed'
     return t
 
 def t_Vertical(t):
@@ -518,20 +513,3 @@ def t_error(t):
 
 #initializes lexer
 lexer = lex.lex()
-try:
-   ChromeItSource = open("script.txt", 'r')
-except IOError:
-   print("Error opening file")
-   exit()
-
-
-fileText = ChromeItSource.read()
-lexer.input(fileText)
- 
-
-#  Tokenize
-while True:
-  tok = lexer.token()
-  if not tok:
-      break      # No more input
-  print(tok)

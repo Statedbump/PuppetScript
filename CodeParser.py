@@ -3,71 +3,69 @@ from _testcapi import raise_exception
 import ply.yacc as yacc
 import CodeLexer
 
-tokensList = CodeLexer.tokens
+tokens = CodeLexer.tokens
 
-def script_type(s):
+def p_script_type(s):
     '''script : Simple
                 | RigidBody
                 | CharacterController'''
 
 
-def simple_script(s):
-    'Simple : SpeedId Movement'
+def p_simple_script(s):
+    'Simple : SIMPLE SpeedId Movement'
 
     f = [s[1]]
     f.extend(s[2])
     s[0] = f
 
+def p_rigid_script(s):
+    'RigidBody : RIGIDBODY SpeedId  Movement  ForceMode  Action'
+    s[0] = s[1] + s[2] + s[3] + s[4] + s[5] 
 
-def movement_rule(s):
+
+def p_chraracter_controller_script(s):
+    'CharacterController : CHARACTERCONTROLLER SpeedId GravityId Movement  ForceMode  Action'
+    s[0] = s[1] + s[2] + s[3] + s[4] + s[5] + s[6]
+	
+def p_speed_Id(s):
+    'SpeedId : Speed EQUALS Float'
+    s[0] = s[1] + s[2] + s[3]
+	
+def p_gravity_Id(s):
+    'GravityId : Gravity EQUALS Float'
+    s[0] = s[1] + s[2] + s[3]	
+	
+	
+def p_movement_rule(s):
     #First move is in x, followed by y , endind with z
     'Movement : ID EQUALS Direction ID EQUALS Direction  ID EQUALS Direction'
     s[0] = s[1] + s[2] + s[3] + s[4] + s[5] + s[6] + s[7] + s[8] + s[9] 
 
 
-def Direction(s):
+def p_Direction(s):
     '''Direction : Horizontal
     | NONE
     | Vertical'''
     s[0] = s[1]
-
-#Preguntarle a angel sobre esto para speed id ya q speed es un keyword
-def speed_Id(s):
-    'SpeedId : ID EQUALS Float'
-    s[0] = s[1] + s[2] + s[3]
-
-
-def rigid_script(s):
-    'RigidBody : RIGIDBODY SpeedId  Movement  ForceMode  Action'
-    s[0] = s[1] + s[2] + s[3] + s[4] + s[5] 
-
-
-def chraracter_controller_script(s):
-    'CharacterController : CHARACTERCONTROLLER SpeedId GravityID Movement  ForceMode  Action'
-    s[0] = s[1] + s[2] + s[3] + s[4] + s[5] + s[6]
 	
 	
-	
-	
-	
-def force_mode(s):
+def p_force_mode(s):
     '''ForceMode : Force
                  | Impulse
                  | Acceleration
-                 | None'''
+                 | NONE'''
     s[0] = s[1]
 
 
-def action(s):
+def p_action(s):
     '''Action : Jump
               | Dash
               | Jetpack'''
     s[0] = s[1]
 
 
-def KeyCodes(s):
-    '''KeyCode : KeyCode_ESC
-         
+def p_KeyCode(s):
+    '''KeyCode : 
           | KeyCode_A
           | KeyCode_B
           | KeyCode_C
@@ -94,40 +92,64 @@ def KeyCodes(s):
           | KeyCode_X
           | KeyCode_Y
           | KeyCode_Z
-          | KeyCode_NUMLOCK
-          | KeyCode_PRINTSCREEN
-          | KeyCode_SCROLL
-          | KeyCode_PAUSE
-          | KeyCode_INSERT
-          | KeyCode_HOME
-          | KeyCode_PAGEUP
-          | KeyCode_DELETE
-          | KeyCode_END
-          | KeyCode_PAGEDOWN
-          | KeyCode_UP
-          | KeyCode_LEFT
-          | KeyCode_DOWN
-          | KeyCode_RIGHT
-          | KeyCode_TAB
-          | KeyCode_CAPSLOCK
-          | KeyCode_BACKSPACE
-          | KeyCode_ENTER
-          | KeyCode_LCTRL
-          | KeyCode_LWIN
-          | KeyCode_LALT
-          | KeyCode_SPACE
-          | KeyCode_RALT
-          | KeyCode_FN
-          | KeyCode_RMENU
-          | KeyCode_RCTRL
-          | KeyCode_LSHIFT
-          | KeyCode_RSHIFT
+          | KeyCode_Backspace
+          | KeyCode_Tab
+          | KeyCode_SysReq
+          | KeyCode_Break
+          | KeyCode_CapsLock
+          | KeyCode_ScrollLock
+          | KeyCode_RightShift
+          | KeyCode_LeftShift
+          | KeyCode_RightControl
+          | KeyCode_RightAlt
+          | KeyCode_LeftAlt
+          | KeyCode_RightCommand
+          | KeyCode_RightApple
+          | KeyCode_LeftCommand
+          | KeyCode_LeftWindows
+          | KeyCode_RightWindows
+          | KeyCode_AltGr
+          | KeyCode_Help
+          | KeyCode_Print
+          | KeyCode_Clear
+          | KeyCode_Return
+          | KeyCode_Pause
+          | KeyCode_Escape
+          | KeyCode_Space
+          | KeyCode_Exclaim
+          | KeyCode_DoubleQuote
+          | KeyCode_Hash
+          | KeyCode_Dollar
+		  | KeyCode_Ampersand
+		  | KeyCode_Quote
+		  | KeyCode_LeftParen
+		  | KeyCode_RightParen
+		  | KeyCode_Asterisk
+		  | KeyCode_Plus
+		  | KeyCode_Comma
+		  | KeyCode_Minus
+		  | KeyCode_Period
+		  | KeyCode_Slash
+		  | KeyCode_Colon
+		  | KeyCode_Semicolon
+		  | KeyCode_Less
+		  | KeyCode_Equals
+		  | KeyCode_Greater
+		  | KeyCode_Question
+		  | KeyCode_At
+		  | KeyCode_LeftBracket
+		  | KeyCode_Backslash
+		  | KeyCode_RightBracket
+		  | KeyCode_Caret
+		  | KeyCode_Underscore
+		  | KeyCode_BackQuote
+		  
 '''
     s[0] = s[1]
 
 
-def jump(s):
-    '''Jump :JUMP EQUALS KeyCode
+def p_Jump(s):
+    '''Jump : JUMP EQUALS KeyCode
             | JUMP EQUALS KeyCode Action'''
     if len(s) == 2:
         s[0] = s[1]
@@ -137,7 +159,7 @@ def jump(s):
         s[0] = f
 
 
-def dash(s):
+def p_Dash(s):
     '''Dash : DASH EQUALS KeyCode
             | DASH EQUALS KeyCode Action'''
     if len(s) == 2:
@@ -148,7 +170,7 @@ def dash(s):
         s[0] = f
 
 
-def jetpack(s):
+def p_JetPack(s):
     '''JetPack : JETPACK EQUALS KeyCode
             | JETPACK EQUALS KeyCode Action'''
     if len(s) == 2:
@@ -159,7 +181,7 @@ def jetpack(s):
         s[0] = f
 
 
-def error(s):
+def p_error(s):
     print("Syntax error in input")
     # Will not raise a flag
 

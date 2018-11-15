@@ -1,0 +1,231 @@
+Created by PLY version 3.11 (http://www.dabeaz.com/ply)
+
+Unused terminals:
+
+    KeyCode_LeftControl
+    SIMPLE
+
+Grammar
+
+Rule 0     S' -> script
+Rule 1     script -> Simple
+Rule 2     script -> RigidBody
+Rule 3     script -> CharacterController
+Rule 4     Simple -> SpeedId Movement
+Rule 5     RigidBody -> RIGIDBODY SpeedId Movement ForceMode Action
+Rule 6     CharacterController -> CHARACTERCONTROLLER SpeedId GravityId Movement ForceMode Action
+Rule 7     SpeedId -> Speed EQUALS Float
+Rule 8     GravityId -> Gravity EQUALS Float
+Rule 9     Movement -> ID EQUALS Direction ID EQUALS Direction ID EQUALS Direction
+Rule 10    Direction -> Horizontal
+Rule 11    Direction -> NONE
+Rule 12    Direction -> Vertical
+Rule 13    ForceMode -> Force
+Rule 14    ForceMode -> Impulse
+Rule 15    ForceMode -> Acceleration
+Rule 16    ForceMode -> NONE
+Rule 17    Action -> Jump
+Rule 18    Action -> Dash
+Rule 19    Action -> Jetpack
+Rule 20    KeyCode -> <empty>
+Rule 21    KeyCode -> KeyCode_A
+Rule 22    KeyCode -> KeyCode_B
+Rule 23    KeyCode -> KeyCode_C
+Rule 24    KeyCode -> KeyCode_D
+Rule 25    KeyCode -> KeyCode_E
+Rule 26    KeyCode -> KeyCode_F
+Rule 27    KeyCode -> KeyCode_G
+Rule 28    KeyCode -> KeyCode_H
+Rule 29    KeyCode -> KeyCode_I
+Rule 30    KeyCode -> KeyCode_J
+Rule 31    KeyCode -> KeyCode_K
+Rule 32    KeyCode -> KeyCode_L
+Rule 33    KeyCode -> KeyCode_M
+Rule 34    KeyCode -> KeyCode_N
+Rule 35    KeyCode -> KeyCode_O
+Rule 36    KeyCode -> KeyCode_P
+Rule 37    KeyCode -> KeyCode_Q
+Rule 38    KeyCode -> KeyCode_R
+Rule 39    KeyCode -> KeyCode_S
+Rule 40    KeyCode -> KeyCode_T
+Rule 41    KeyCode -> KeyCode_U
+Rule 42    KeyCode -> KeyCode_V
+Rule 43    KeyCode -> KeyCode_W
+Rule 44    KeyCode -> KeyCode_X
+Rule 45    KeyCode -> KeyCode_Y
+Rule 46    KeyCode -> KeyCode_Z
+Rule 47    KeyCode -> KeyCode_Backspace
+Rule 48    KeyCode -> KeyCode_Tab
+Rule 49    KeyCode -> KeyCode_SysReq
+Rule 50    KeyCode -> KeyCode_Break
+Rule 51    KeyCode -> KeyCode_CapsLock
+Rule 52    KeyCode -> KeyCode_ScrollLock
+Rule 53    KeyCode -> KeyCode_RightShift
+Rule 54    KeyCode -> KeyCode_LeftShift
+Rule 55    KeyCode -> KeyCode_RightControl
+Rule 56    KeyCode -> KeyCode_RightAlt
+Rule 57    KeyCode -> KeyCode_LeftAlt
+Rule 58    KeyCode -> KeyCode_RightCommand
+Rule 59    KeyCode -> KeyCode_RightApple
+Rule 60    KeyCode -> KeyCode_LeftCommand
+Rule 61    KeyCode -> KeyCode_LeftWindows
+Rule 62    KeyCode -> KeyCode_RightWindows
+Rule 63    KeyCode -> KeyCode_AltGr
+Rule 64    KeyCode -> KeyCode_Help
+Rule 65    KeyCode -> KeyCode_Print
+Rule 66    KeyCode -> KeyCode_Clear
+Rule 67    KeyCode -> KeyCode_Return
+Rule 68    KeyCode -> KeyCode_Pause
+Rule 69    KeyCode -> KeyCode_Escape
+Rule 70    KeyCode -> KeyCode_Space
+Rule 71    KeyCode -> KeyCode_Exclaim
+Rule 72    KeyCode -> KeyCode_DoubleQuote
+Rule 73    KeyCode -> KeyCode_Hash
+Rule 74    KeyCode -> KeyCode_Dollar
+Rule 75    KeyCode -> KeyCode_Ampersand
+Rule 76    KeyCode -> KeyCode_Quote
+Rule 77    KeyCode -> KeyCode_LeftParen
+Rule 78    KeyCode -> KeyCode_RightParen
+Rule 79    KeyCode -> KeyCode_Asterisk
+Rule 80    KeyCode -> KeyCode_Plus
+Rule 81    KeyCode -> KeyCode_Comma
+Rule 82    KeyCode -> KeyCode_Minus
+Rule 83    KeyCode -> KeyCode_Period
+Rule 84    KeyCode -> KeyCode_Slash
+Rule 85    KeyCode -> KeyCode_Colon
+Rule 86    KeyCode -> KeyCode_Semicolon
+Rule 87    KeyCode -> KeyCode_Less
+Rule 88    KeyCode -> KeyCode_Equals
+Rule 89    KeyCode -> KeyCode_Greater
+Rule 90    KeyCode -> KeyCode_Question
+Rule 91    KeyCode -> KeyCode_At
+Rule 92    KeyCode -> KeyCode_LeftBracket
+Rule 93    KeyCode -> KeyCode_Backslash
+Rule 94    KeyCode -> KeyCode_RightBracket
+Rule 95    KeyCode -> KeyCode_Caret
+Rule 96    KeyCode -> KeyCode_Underscore
+Rule 97    KeyCode -> KeyCode_BackQuote
+Rule 98    Jump -> JUMP EQUALS KeyCode
+Rule 99    Jump -> JUMP EQUALS KeyCode Action
+Rule 100   Dash -> DASH EQUALS KeyCode
+Rule 101   Dash -> DASH EQUALS KeyCode Action
+Rule 102   JetPack -> JETPACK EQUALS KeyCode
+Rule 103   JetPack -> JETPACK EQUALS KeyCode Action
+
+Terminals, with rules where they appear
+
+Acceleration         : 15
+CHARACTERCONTROLLER  : 6
+DASH                 : 100 101
+EQUALS               : 7 8 9 9 9 98 99 100 101 102 103
+Float                : 7 8
+Force                : 13
+Gravity              : 8
+Horizontal           : 10
+ID                   : 9 9 9
+Impulse              : 14
+JETPACK              : 102 103
+JUMP                 : 98 99
+KeyCode_A            : 21
+KeyCode_AltGr        : 63
+KeyCode_Ampersand    : 75
+KeyCode_Asterisk     : 79
+KeyCode_At           : 91
+KeyCode_B            : 22
+KeyCode_BackQuote    : 97
+KeyCode_Backslash    : 93
+KeyCode_Backspace    : 47
+KeyCode_Break        : 50
+KeyCode_C            : 23
+KeyCode_CapsLock     : 51
+KeyCode_Caret        : 95
+KeyCode_Clear        : 66
+KeyCode_Colon        : 85
+KeyCode_Comma        : 81
+KeyCode_D            : 24
+KeyCode_Dollar       : 74
+KeyCode_DoubleQuote  : 72
+KeyCode_E            : 25
+KeyCode_Equals       : 88
+KeyCode_Escape       : 69
+KeyCode_Exclaim      : 71
+KeyCode_F            : 26
+KeyCode_G            : 27
+KeyCode_Greater      : 89
+KeyCode_H            : 28
+KeyCode_Hash         : 73
+KeyCode_Help         : 64
+KeyCode_I            : 29
+KeyCode_J            : 30
+KeyCode_K            : 31
+KeyCode_L            : 32
+KeyCode_LeftAlt      : 57
+KeyCode_LeftBracket  : 92
+KeyCode_LeftCommand  : 60
+KeyCode_LeftControl  : 
+KeyCode_LeftParen    : 77
+KeyCode_LeftShift    : 54
+KeyCode_LeftWindows  : 61
+KeyCode_Less         : 87
+KeyCode_M            : 33
+KeyCode_Minus        : 82
+KeyCode_N            : 34
+KeyCode_O            : 35
+KeyCode_P            : 36
+KeyCode_Pause        : 68
+KeyCode_Period       : 83
+KeyCode_Plus         : 80
+KeyCode_Print        : 65
+KeyCode_Q            : 37
+KeyCode_Question     : 90
+KeyCode_Quote        : 76
+KeyCode_R            : 38
+KeyCode_Return       : 67
+KeyCode_RightAlt     : 56
+KeyCode_RightApple   : 59
+KeyCode_RightBracket : 94
+KeyCode_RightCommand : 58
+KeyCode_RightControl : 55
+KeyCode_RightParen   : 78
+KeyCode_RightShift   : 53
+KeyCode_RightWindows : 62
+KeyCode_S            : 39
+KeyCode_ScrollLock   : 52
+KeyCode_Semicolon    : 86
+KeyCode_Slash        : 84
+KeyCode_Space        : 70
+KeyCode_SysReq       : 49
+KeyCode_T            : 40
+KeyCode_Tab          : 48
+KeyCode_U            : 41
+KeyCode_Underscore   : 96
+KeyCode_V            : 42
+KeyCode_W            : 43
+KeyCode_X            : 44
+KeyCode_Y            : 45
+KeyCode_Z            : 46
+NONE                 : 11 16
+RIGIDBODY            : 5
+SIMPLE               : 
+Speed                : 7
+Vertical             : 12
+error                : 
+
+Nonterminals, with rules where they appear
+
+Action               : 5 6 99 101 103
+CharacterController  : 3
+Dash                 : 18
+Direction            : 9 9 9
+ForceMode            : 5 6
+GravityId            : 6
+JetPack              : 
+Jetpack              : 19
+Jump                 : 17
+KeyCode              : 98 99 100 101 102 103
+Movement             : 4 5 6
+RigidBody            : 2
+Simple               : 1
+SpeedId              : 4 5 6
+script               : 0
+

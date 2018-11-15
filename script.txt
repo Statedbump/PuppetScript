@@ -1,5 +1,5 @@
 RIGIDBODY
-speed = 10.0
+Speed = 10.0
 movex = Horizontal
 movey = NONE
 movez = Vertical
