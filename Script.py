@@ -10,9 +10,9 @@ time.sleep(0.25)
 
 file = 'script.txt'
 
-try:
-    App.translate(file)
-    time.sleep(5)
-    print("file succesfully writen and uploaded!\n")
-except:
-    print("Errors were encountered\n")
+
+App.translate(file)
+time.sleep(5)
+print("file succesfully writen and uploaded!\n")
+#except:
+#    print("Errors were encountered\n")

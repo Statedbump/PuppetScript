@@ -60,7 +60,7 @@ def p_force_mode(s):
 def p_action(s):
     '''Action : Jump
               | Dash
-              | Jetpack'''
+              | JetPack'''
     s[0] = s[1]
 
 
@@ -101,6 +101,7 @@ def p_KeyCode(s):
           | KeyCode_RightShift
           | KeyCode_LeftShift
           | KeyCode_RightControl
+          | KeyCode_LeftControl
           | KeyCode_RightAlt
           | KeyCode_LeftAlt
           | KeyCode_RightCommand

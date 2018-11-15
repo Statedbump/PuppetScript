@@ -4,6 +4,16 @@ import ply.lex as lex
 #List of tokens
 
 tokens = [
+
+#Simple	
+	'SIMPLE',
+	
+	#RigidBody	
+	'RIGIDBODY',
+	
+	#Character Controller
+	'CHARACTERCONTROLLER',
+	
 	#Character
 	'ID',
 	
@@ -13,14 +23,6 @@ tokens = [
 	#Equals
 	'EQUALS',
 	
-	#Simple	
-	'SIMPLE',
-	
-	#RigidBody	
-	'RIGIDBODY',
-	
-	#Character Controller
-	'CHARACTERCONTROLLER',
 	
 	#Special iD's 
 	'Speed','Gravity',
@@ -91,7 +93,7 @@ def t_SIMPLE(t):
 
 	
 def t_RIGIDBODY(t):
-    r'RIGIDBODY'
+    r' RIGIDBODY '
     t.value = 'RIGIDBODY'
     return t
 
@@ -116,7 +118,7 @@ def t_Speed(t):
     return t
 
 def t_Vertical(t):
-    r'Vertical'
+    r' Vertical '
     t.value = 'Vertical'
     return t
 	
@@ -513,3 +515,19 @@ def t_error(t):
 
 #initializes lexer
 lexer = lex.lex()
+
+try:
+   ChromeItSource = open("script.txt", 'r')
+except IOError:
+   print("Error opening file")
+   exit()
+
+fileText = ChromeItSource.read()
+lexer.input(fileText)
+
+ # Tokenize
+while True:
+  tok = lexer.token()
+  if not tok:
+     break      # No more input
+  print(tok)
