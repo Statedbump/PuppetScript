@@ -1,0 +1,7 @@
+RIGIDBODY
+speed = 10.0
+movex = Horizontal
+movey = NONE
+movez = Vertical
+Acceleration
+JUMP = KeyCode.Space

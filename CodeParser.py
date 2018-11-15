@@ -20,27 +20,36 @@ def simple_script(s):
 
 
 def movement_rule(s):
-    'Movement : ID EQUALS move COMA ID EQUALS move COMA ID EQUALS move'
-    s[0] = s[1] + s[2] + s[3] + s[4] + s[5] + s[6] + s[7] + s[8] + s[9] + s[10] + s[11]
+    #First move is in x, followed by y , endind with z
+    'Movement : ID EQUALS Direction ID EQUALS Direction  ID EQUALS Direction'
+    s[0] = s[1] + s[2] + s[3] + s[4] + s[5] + s[6] + s[7] + s[8] + s[9] 
 
 
-def move(s):
-    '''move : Horizontal
-    | None
+def Direction(s):
+    '''Direction : Horizontal
+    | NONE
     | Vertical'''
     s[0] = s[1]
 
-
+#Preguntarle a angel sobre esto para speed id ya q speed es un keyword
 def speed_Id(s):
-    'SpeedId : ID EQUALS INT'
+    'SpeedId : ID EQUALS Float'
     s[0] = s[1] + s[2] + s[3]
 
 
 def rigid_script(s):
-    'RigidBody : SpeedId COMA RigidBodyId COMA Movement COMA ForceMode COMA Action'
-    s[0] = s[1] + s[2] + s[3] + s[4] + s[5] + s[6] + s[7] + s[8] + s[9]
+    'RigidBody : RIGIDBODY SpeedId  Movement  ForceMode  Action'
+    s[0] = s[1] + s[2] + s[3] + s[4] + s[5] 
 
 
+def chraracter_controller_script(s):
+    'CharacterController : CHARACTERCONTROLLER SpeedId GravityID Movement  ForceMode  Action'
+    s[0] = s[1] + s[2] + s[3] + s[4] + s[5] + s[6]
+	
+	
+	
+	
+	
 def force_mode(s):
     '''ForceMode : Force
                  | Impulse
@@ -56,135 +65,70 @@ def action(s):
     s[0] = s[1]
 
 
-def keys(s):
-    '''Key : KEY_ESC
-          | KEY_F1
-          | KEY_F2
-          | KEY_F3
-          | KEY_F4
-          | KEY_F5
-          | KEY_F6
-          | KEY_F7
-          | KEY_F8
-          | KEY_F9
-          | KEY_F10
-          | KEY_F11
-          | KEY_F12
-          | KEY_1
-          | KEY_2
-          | KEY_3
-          | KEY_4
-          | KEY_5
-          | KEY_6
-          | KEY_7
-          | KEY_8
-          | KEY_9
-          | KEY_0
-          | KEY_A
-          | KEY_B
-          | KEY_C
-          | KEY_D
-          | KEY_E
-          | KEY_F
-          | KEY_G
-          | KEY_H
-          | KEY_I
-          | KEY_J
-          | KEY_K
-          | KEY_L
-          | KEY_M
-          | KEY_N
-          | KEY_O
-          | KEY_P
-          | KEY_Q
-          | KEY_R
-          | KEY_S
-          | KEY_T
-          | KEY_U
-          | KEY_V
-          | KEY_W
-          | KEY_X
-          | KEY_Y
-          | KEY_Z
-          | KEY_NUMLOCK
-          | KEY_NUMPAD
-          | KEY_NUMPAD2
-          | KEY_NUMPAD3
-          | KEY_NUMPAD4
-          | KEY_NUMPAD5
-          | KEY_NUMPAD6
-          | KEY_NUMPAD7
-          | KEY_NUMPAD8
-          | KEY_NUMPAD9
-          | KEY_NUMPAD_DIVIDE
-          | KEY_NUMPAD_MULTIPLY
-          | KEY_NUMPAD_SUBTRACT
-          | KEY_NUMPAD_ADD
-          | KEY_NUMPAD_ENTER
-          | KEY_NUMPAD_DECIMAL
-          | KEY_PRINTSCREEN
-          | KEY_SCROLL
-          | KEY_PAUSE
-          | KEY_INSERT
-          | KEY_HOME
-          | KEY_PAGEUP
-          | KEY_DELETE
-          | KEY_END
-          | KEY_PAGEDOWN
-          | KEY_UP
-          | KEY_LEFT
-          | KEY_DOWN
-          | KEY_RIGHT
-          | KEY_TAB
-          | KEY_CAPSLOCK
-          | KEY_BACKSPACE
-          | KEY_ENTER
-          | KEY_LCTRL
-          | KEY_LWIN
-          | KEY_LALT
-          | KEY_SPACE
-          | KEY_RALT
-          | KEY_FN
-          | KEY_RMENU
-          | KEY_RCTRL
-          | KEY_LSHIFT
-          | KEY_RSHIFT
-          | KEY_MACRO1
-          | KEY_MACRO2
-          | KEY_MACRO3
-          | KEY_MACRO4
-          | KEY_MACRO5
-          | KEY_OEM_1
-          | KEY_OEM_2
-          | KEY_OEM_3
-          | KEY_OEM_4
-          | KEY_OEM_5
-          | KEY_OEM_6
-          | KEY_OEM_7
-          | KEY_OEM_8
-          | KEY_OEM_9
-          | KEY_OEM_10
-          | KEY_OEM_11
-          | KEY_EUR_1
-          | KEY_EUR_2
-          | KEY_JPN_1
-          | KEY_JPN_2
-          | KEY_JPN_3
-          | KEY_JPN_4
-          | KEY_JPN_5
-          | KEY_KOR_1
-          | KEY_KOR_2
-          | KEY_KOR_3
-          | KEY_KOR_4
-          | KEY_KOR_5
-          | KEY_KOR_6
-          | KEY_KOR_7'''
+def KeyCodes(s):
+    '''KeyCode : KeyCode_ESC
+         
+          | KeyCode_A
+          | KeyCode_B
+          | KeyCode_C
+          | KeyCode_D
+          | KeyCode_E
+          | KeyCode_F
+          | KeyCode_G
+          | KeyCode_H
+          | KeyCode_I
+          | KeyCode_J
+          | KeyCode_K
+          | KeyCode_L
+          | KeyCode_M
+          | KeyCode_N
+          | KeyCode_O
+          | KeyCode_P
+          | KeyCode_Q
+          | KeyCode_R
+          | KeyCode_S
+          | KeyCode_T
+          | KeyCode_U
+          | KeyCode_V
+          | KeyCode_W
+          | KeyCode_X
+          | KeyCode_Y
+          | KeyCode_Z
+          | KeyCode_NUMLOCK
+          | KeyCode_PRINTSCREEN
+          | KeyCode_SCROLL
+          | KeyCode_PAUSE
+          | KeyCode_INSERT
+          | KeyCode_HOME
+          | KeyCode_PAGEUP
+          | KeyCode_DELETE
+          | KeyCode_END
+          | KeyCode_PAGEDOWN
+          | KeyCode_UP
+          | KeyCode_LEFT
+          | KeyCode_DOWN
+          | KeyCode_RIGHT
+          | KeyCode_TAB
+          | KeyCode_CAPSLOCK
+          | KeyCode_BACKSPACE
+          | KeyCode_ENTER
+          | KeyCode_LCTRL
+          | KeyCode_LWIN
+          | KeyCode_LALT
+          | KeyCode_SPACE
+          | KeyCode_RALT
+          | KeyCode_FN
+          | KeyCode_RMENU
+          | KeyCode_RCTRL
+          | KeyCode_LSHIFT
+          | KeyCode_RSHIFT
+'''
     s[0] = s[1]
 
 
 def jump(s):
-    '''Jump : Key
-            | Key Action'''
+    '''Jump :JUMP EQUALS KeyCode
+            | JUMP EQUALS KeyCode Action'''
     if len(s) == 2:
         s[0] = s[1]
     else:
@@ -194,8 +138,8 @@ def jump(s):
 
 
 def dash(s):
-    '''Dash : Key
-            | Key Action'''
+    '''Dash : DASH EQUALS KeyCode
+            | DASH EQUALS KeyCode Action'''
     if len(s) == 2:
         s[0] = s[1]
     else:
@@ -205,8 +149,8 @@ def dash(s):
 
 
 def jetpack(s):
-    '''JetPack : Key
-            | Key Action'''
+    '''JetPack : JETPACK EQUALS KeyCode
+            | JETPACK EQUALS KeyCode Action'''
     if len(s) == 2:
         s[0] = s[1]
     else:

@@ -23,15 +23,12 @@ tokens = [
 	'CHARACTERCONTROLLER',
 	
 	#Special iD's 
-	'Speed','Gravity'
+	'Speed','Gravity',
 	
-	#This part will be the movements
-	
-	#MoveX
+
+	#Dirrection
 	'Horizontal',
-	#MoveZ
-	'Vertical',
-	#MoveY
+	'Vertical',	
 	'NONE',
 	
 	#Actions
@@ -41,13 +38,6 @@ tokens = [
 	'Force','Impulse','Acceleration',
 	
 	#KEYS
-	
-	#Letters
-	'KeyCode_A','KeyCode_B','KeyCode_C','KeyCode_D','KeyCode_E','KeyCode_F','KeyCode_G',
-	'KeyCode_H','KeyCode_I','KeyCode_J','KeyCode_K','KeyCode_L','KeyCode_M','KeyCode_N'
-	'KeyCode_O','KeyCode_P','KeyCode_Q','KeyCode_R','KeyCode_S','KeyCode_T','KeyCode_U'
-	'KeyCode_V','KeyCode_W','KeyCode_X','KeyCode_Y','KeyCode_Z',
-	
 	#Other Keys
 	'KeyCode_Backspace','KeyCode_Tab', 'KeyCode_SysReq','KeyCode_Break',
 	'KeyCode_CapsLock', 'KeyCode_ScrollLock', 'KeyCode_RightShift','KeyCode_LeftShift',
@@ -70,7 +60,7 @@ tokens = [
     'KeyCode_Less',
     'KeyCode_Equals',
     'KeyCode_Greater',
-    'KeyCode_Question,'
+    'KeyCode_Question',
     'KeyCode_At',
     'KeyCode_LeftBracket',
     'KeyCode_Backslash',
@@ -78,11 +68,17 @@ tokens = [
     'KeyCode_Caret', 
     'KeyCode_Underscore',
     'KeyCode_BackQuote',
+	#Letters
+	'KeyCode_A','KeyCode_B','KeyCode_C','KeyCode_D','KeyCode_E','KeyCode_F','KeyCode_G',
+	'KeyCode_H','KeyCode_I','KeyCode_J','KeyCode_K','KeyCode_L','KeyCode_M','KeyCode_N'
+	'KeyCode_O','KeyCode_P','KeyCode_Q','KeyCode_R','KeyCode_S','KeyCode_T','KeyCode_U'
+	'KeyCode_V','KeyCode_W','KeyCode_X','KeyCode_Y','KeyCode_Z'
+	
+	
      
 ]	
 
-t_Float = r'[[0-9]+([.][0-9]+)*'
-t_ID = r'[a-zA-z]([a-zA-Z]|[0-9])*'
+t_Float = r'[[0-9]+[.][0-9]+'
 t_EQUALS = r'\='
 t_ignore = ' \t\n'
 
@@ -121,7 +117,7 @@ def t_Gravity(t):
 	#Movement
 def t_Horizontal(t):
     r'Horizontal'
-    t.value = 'Horizontal'
+    t.type = 'Horizontal'
     return t
 
 def t_Vertical(t):
@@ -169,136 +165,7 @@ def t_Acceleration(t):
 	
 
 #Keys
-#LETTERS
-def t_KeyCode_A(t):
-    r'KeyCode.A'
-    t.value = 'KeyCode_A'
-    return t
-def t_KeyCode_B(t):
-    r'KeyCode.B'
-    t.value = 'KeyCode_B'
-    return t
 
-def t_KeyCode_C(t):
-    r'KeyCode.C'
-    t.value = 'KeyCode_C'
-    return t
-
-def t_KeyCode_D(t):
-    r'KeyCode.D'
-    t.value = 'KeyCode_D'
-    return t
-	
-def t_KeyCode_E(t):
-    r'KeyCode.E'
-    t.value = 'KeyCode_E'
-    return t	
-	
-def t_KeyCode_F(t):
-    r'KeyCode.F'
-    t.value = 'KeyCode_F'
-    return t	
-	
-def t_KeyCode_G(t):
-    r'KeyCode.G'
-    t.value = 'KeyCode_G'
-    return t	
-	
-def t_KeyCode_H(t):
-    r'KeyCode.H'
-    t.value = 'KeyCode_H'
-    return t	
-	
-def t_KeyCode_I(t):
-    r'KeyCode.I'
-    t.value = 'KeyCode_I'
-    return t	
-	
-def t_KeyCode_J(t):
-    r'KeyCode.J'
-    t.value = 'KeyCode_J'
-    return t	
-	
-def t_KeyCode_K(t):
-    r'KeyCode.K'
-    t.value = 'KeyCode_K'
-    return t	
-	
-def t_KeyCode_L(t):
-    r'KeyCode.L'
-    t.value = 'KeyCode_L'
-    return t	
-	
-def t_KeyCode_M(t):
-    r'KeyCode.M'
-    t.value = 'KeyCode_M'
-    return t	
-	
-def t_KeyCode_N(t):
-    r'KeyCode.N'
-    t.value = 'KeyCode_N'
-    return t	
-	
-def t_KeyCode_O(t):
-    r'KeyCode.O'
-    t.value = 'KeyCode_O'
-    return t	
-	
-def t_KeyCode_P(t):
-    r'KeyCode.P'
-    t.value = 'KeyCode_P'
-    return t
-	
-def t_KeyCode_Q(t):
-    r'KeyCode.Q'
-    t.value = 'KeyCode_Q'
-    return t	
-	
-def t_KeyCode_R(t):
-    r'KeyCode.R'
-    t.value = 'KeyCode_R'
-    return t	
-	
-def t_KeyCode_S(t):
-    r'KeyCode.S'
-    t.value = 'KeyCode_S'
-    return t	
-	
-def t_KeyCode_T(t):
-    r'KeyCode.T'
-    t.value = 'KeyCode_T'
-    return t	
-	
-def t_KeyCode_U(t):
-    r'KeyCode.U'
-    t.value = 'KeyCode_U'
-    return t	
-	
-def t_KeyCode_V(t):
-    r'KeyCode.V'
-    t.value = 'KeyCode_V'
-    return t	
-	
-def t_KeyCode_W(t):
-    r'KeyCode.W'
-    t.value = 'KeyCode_W'
-    return t	
-	
-def t_KeyCode_X(t):
-    r'KeyCode.X'
-    t.value = 'KeyCode_X'
-    return t	
-	
-def t_KeyCode_Y(t):
-    r'KeyCode.Y'
-    t.value = 'KeyCode_Y'
-    return t	
-	
-def t_KeyCode_Z(t):
-    r'KeyCode.Z'
-    t.value = 'KeyCode_Z'
-    return t
-	
 #OTHER BUTTONS	
 	
 
@@ -508,3 +375,163 @@ def t_KeyCode_BackQuote(t):
     t.value = 'KeyCode_BackQuote'
     return t
 
+#LETTERS
+def t_KeyCode_A(t):
+    r'KeyCode.A'
+    t.value = 'KeyCode_A'
+    return t
+def t_KeyCode_B(t):
+    r'KeyCode.B'
+    t.value = 'KeyCode_B'
+    return t
+
+def t_KeyCode_C(t):
+    r'KeyCode.C'
+    t.value = 'KeyCode_C'
+    return t
+
+def t_KeyCode_D(t):
+    r'KeyCode.D'
+    t.value = 'KeyCode_D'
+    return t
+	
+def t_KeyCode_E(t):
+    r'KeyCode.E'
+    t.value = 'KeyCode_E'
+    return t	
+	
+def t_KeyCode_F(t):
+    r'KeyCode.F'
+    t.value = 'KeyCode_F'
+    return t	
+	
+def t_KeyCode_G(t):
+    r'KeyCode.G'
+    t.value = 'KeyCode_G'
+    return t	
+	
+def t_KeyCode_H(t):
+    r'KeyCode.H'
+    t.value = 'KeyCode_H'
+    return t	
+	
+def t_KeyCode_I(t):
+    r'KeyCode.I'
+    t.value = 'KeyCode_I'
+    return t	
+	
+def t_KeyCode_J(t):
+    r'KeyCode.J'
+    t.value = 'KeyCode_J'
+    return t	
+	
+def t_KeyCode_K(t):
+    r'KeyCode.K'
+    t.value = 'KeyCode_K'
+    return t	
+	
+def t_KeyCode_L(t):
+    r'KeyCode.L'
+    t.value = 'KeyCode_L'
+    return t	
+	
+def t_KeyCode_M(t):
+    r'KeyCode.M'
+    t.value = 'KeyCode_M'
+    return t	
+	
+def t_KeyCode_N(t):
+    r'KeyCode.N'
+    t.value = 'KeyCode_N'
+    return t	
+	
+def t_KeyCode_O(t):
+    r'KeyCode.O'
+    t.value = 'KeyCode_O'
+    return t	
+	
+def t_KeyCode_P(t):
+    r'KeyCode.P'
+    t.value = 'KeyCode_P'
+    return t
+	
+def t_KeyCode_Q(t):
+    r'KeyCode.Q'
+    t.value = 'KeyCode_Q'
+    return t	
+	
+def t_KeyCode_R(t):
+    r'KeyCode.R'
+    t.value = 'KeyCode_R'
+    return t	
+	
+def t_KeyCode_S(t):
+    r'KeyCode.S'
+    t.value = 'KeyCode_S'
+    return t	
+	
+def t_KeyCode_T(t):
+    r'KeyCode.T'
+    t.value = 'KeyCode_T'
+    return t	
+	
+def t_KeyCode_U(t):
+    r'KeyCode.U'
+    t.value = 'KeyCode_U'
+    return t	
+	
+def t_KeyCode_V(t):
+    r'KeyCode.V'
+    t.value = 'KeyCode_V'
+    return t	
+	
+def t_KeyCode_W(t):
+    r'KeyCode.W'
+    t.value = 'KeyCode_W'
+    return t	
+	
+def t_KeyCode_X(t):
+    r'KeyCode.X'
+    t.value = 'KeyCode_X'
+    return t	
+	
+def t_KeyCode_Y(t):
+    r'KeyCode.Y'
+    t.value = 'KeyCode_Y'
+    return t	
+	
+def t_KeyCode_Z(t):
+    r'KeyCode.Z'
+    t.value = 'KeyCode_Z'
+    return t
+	
+
+def t_ID(t):
+    r'[a-zA-Z_][a-zA-Z_0-9]*'
+    t.type = 'ID'
+    return t
+
+#Defines error behavior
+def t_error(t):
+    print("Illegal character '%s'" % t.value[0])
+
+
+#initializes lexer
+lexer = lex.lex()
+try:
+   ChromeItSource = open("script.txt", 'r')
+except IOError:
+   print("Error opening file")
+   exit()
+
+
+fileText = ChromeItSource.read()
+lexer.input(fileText)
+ 
+
+#  Tokenize
+while True:
+  tok = lexer.token()
+  if not tok:
+      break      # No more input
+  print(tok)
