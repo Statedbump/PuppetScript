@@ -20,26 +20,39 @@ def p_simple_script(s):
 
 def p_rigid_script(s):
     'RigidBody : RIGIDBODY SpeedId  Movement  ForceMode  Action'
-    s[0] = s[1] + s[2] + s[3] + s[4] + s[5] 
+    f = [s[1], s[2], s[3], s[4], s[5]]
+    f.__str__()
+    s[0] = f
 
 
 def p_chraracter_controller_script(s):
     'CharacterController : CHARACTERCONTROLLER SpeedId GravityId Movement  ForceMode  Action'
-    s[0] = s[1] + s[2] + s[3] + s[4] + s[5] + s[6]
-	
+    f = [s[1], s[2], s[3], s[4], s[5], s[6]]
+    f.__str__()
+    s[0] = f
+
+
 def p_speed_Id(s):
     'SpeedId : Speed EQUALS Float'
-    s[0] = s[1] + s[2] + s[3]
-	
+    f = [s[1], s[2], s[3]]
+    f.__str__()
+    s[0] = f
+
+
 def p_gravity_Id(s):
     'GravityId : Gravity EQUALS Float'
-    s[0] = s[1] + s[2] + s[3]	
+    f = [s[1], s[2], s[3]]
+    f.__str__()
+    s[0] = f
 	
 	
 def p_movement_rule(s):
     #First move is in x, followed by y , endind with z
     'Movement : ID EQUALS Direction ID EQUALS Direction  ID EQUALS Direction'
-    s[0] = s[1] + s[2] + s[3] + s[4] + s[5] + s[6] + s[7] + s[8] + s[9] 
+    s[0] = s[1] + s[2] + s[3] + s[4] + s[5] + s[6] + s[7] + s[8] + s[9]
+    f = [s[1], s[2], s[3], s[4], s[5], s[6], s[7], s[8], s[9]]
+    f.__str__()
+    s[0] = f
 
 
 def p_Direction(s):

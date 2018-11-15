@@ -1528,7 +1528,7 @@ state 82
     $end            reduce using rule 56 (KeyCode -> KeyCode_LeftControl .)
 
 
-state 83
+state 83s
 
     (57) KeyCode -> KeyCode_RightAlt .
 
