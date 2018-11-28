@@ -4,12 +4,20 @@ import ply.yacc as yacc
 import CodeLexer
 
 tokens = CodeLexer.tokens
+
 def p_script_type(p):
     '''script : Simple
                 | RigidBody
                 | CharacterController'''
+def p_simple_script(p):
+ 'Simple : SIMPLE SpeedId Movement'
+ p[0] = (p[1], p[2], p[3] )
 
-
+   
+def p_rigid_script(p):
+    'RigidBody : RIGIDBODY SpeedId  Movement  ForceMode  Action'
+    p[0] = (p[1], p[2], p[3], p[4], p[5])
+   
 def p_rigid_script(p):
     'RigidBody : RIGIDBODY SpeedId  Movement  ForceMode  Action'
     p[0] = (p[1], p[2], p[3], p[4], p[5])
@@ -24,13 +32,13 @@ def p_chraracter_controller_script(p):
 
 def p_speed_Id(p):
     'SpeedId : Speed EQUALS Float'
-    p[0] = (s[1], s[2], s[3])
+    p[0] = (p[1], p[2], p[3])
     
 
 
 def p_gravity_Id(p):
     'GravityId : Gravity EQUALS Float'
-    p[0]=(s[1], s[2], s[3])
+    p[0]=(p[1], p[2], p[3])
   
 	
 	
@@ -48,7 +56,7 @@ def p_Direction(p):
     p[0] = p[1]
 	
 	
-def p_force_mode(s):
+def p_force_mode(p):
     '''ForceMode : Force
                  | Impulse
                  | Acceleration
@@ -56,7 +64,7 @@ def p_force_mode(s):
     p[0] = p[1]
 
 
-def p_action(s):
+def p_action(p):
     '''Action : Jump
               | Dash
               | JetPack'''
@@ -148,30 +156,28 @@ def p_KeyCode(p):
     p[0] = p[1]
 
 
-def p_Jump( p):
+def p_Jump(p):
     '''Jump : JUMP EQUALS KeyCode
             | JUMP EQUALS KeyCode Action'''
-    if len(p) == 3:
-        p[0] = (p[1],p[2],p[3])
+    if(len(p)== 4):
+        p[0] = (p[1], p[2], p[3] )
     else:
-       
-        p[0] = (p[1],p[2],p[3],p[4])
+        p[0] = (p[1], p[2], p[3], p[4] )
 
 
 def p_Dash(p):
     '''Dash : DASH EQUALS KeyCode
             | DASH EQUALS KeyCode Action'''
-    if len(p) == 3:
+    if (len(p) == 4):
         p[0] = (p[1],p[2],p[3])
     else:
-       
         p[0] = (p[1],p[2],p[3],p[4])
 
 
 def p_JetPack(p):
     '''JetPack : JETPACK EQUALS KeyCode
             | JETPACK EQUALS KeyCode Action'''
-    if len(p) == 3:
+    if (len(p) == 4):
         p[0] = (p[1],p[2],p[3])
     else:
        
@@ -193,3 +199,8 @@ def translate(s):
 
     parser = yacc.yacc()
     res = parser.parse(fileScript)
+
+	
+	
+file = 'script.txt'
+translate(file)
