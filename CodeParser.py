@@ -5,6 +5,7 @@ import CodeLexer
 
 tokens = CodeLexer.tokens
 
+
 def p_script_type(p):
     '''script : Simple
                 | RigidBody
