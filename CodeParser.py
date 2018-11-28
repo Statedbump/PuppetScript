@@ -24,13 +24,13 @@ def p_chraracter_controller_script(p):
 
 def p_speed_Id(p):
     'SpeedId : Speed EQUALS Float'
-    p[0] = (s[1], s[2], s[3])
+    p[0] = (p[1], p[2], p[3])
     
 
 
 def p_gravity_Id(p):
     'GravityId : Gravity EQUALS Float'
-    p[0]=(s[1], s[2], s[3])
+    p[0]=(p[1], p[2], p[3])
   
 	
 	
@@ -48,7 +48,7 @@ def p_Direction(p):
     p[0] = p[1]
 	
 	
-def p_force_mode(s):
+def p_force_mode(p):
     '''ForceMode : Force
                  | Impulse
                  | Acceleration
@@ -56,7 +56,7 @@ def p_force_mode(s):
     p[0] = p[1]
 
 
-def p_action(s):
+def p_action(p):
     '''Action : Jump
               | Dash
               | JetPack'''
