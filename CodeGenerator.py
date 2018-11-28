@@ -13,7 +13,7 @@ def move(command):
         
 
 def initialRigidbody(speed, Horizontal, Vertical):
-    code = "using System.Collections;\n" \
+    code =  "using System.Collections;\n" \
             "using System.Collections.Generic;\n" \
             "using UnityEngine;\n" \
             "\n" \ 

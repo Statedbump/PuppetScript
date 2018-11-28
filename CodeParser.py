@@ -4,62 +4,48 @@ import ply.yacc as yacc
 import CodeLexer
 
 tokens = CodeLexer.tokens
-
-def p_script_type(s):
+def p_script_type(p):
     '''script : Simple
                 | RigidBody
                 | CharacterController'''
 
 
-def p_simple_script(s):
-    'Simple : SIMPLE SpeedId Movement'
-
-    f = [s[1]]
-    f.extend(s[2])
-    s[0] = f
-
-def p_rigid_script(s):
+def p_rigid_script(p):
     'RigidBody : RIGIDBODY SpeedId  Movement  ForceMode  Action'
-    f = [s[1], s[2], s[3], s[4], s[5]]
-    f.__str__()
-    s[0] = f
+    p[0] = (p[1], p[2], p[3], p[4], p[5])
+   
 
 
-def p_chraracter_controller_script(s):
+def p_chraracter_controller_script(p):
     'CharacterController : CHARACTERCONTROLLER SpeedId GravityId Movement  ForceMode  Action'
-    f = [s[1], s[2], s[3], s[4], s[5], s[6]]
-    f.__str__()
-    s[0] = f
+    p[0] = (p[1], p[2], p[3], p[4], p[5], p[6])
+    
 
 
-def p_speed_Id(s):
+def p_speed_Id(p):
     'SpeedId : Speed EQUALS Float'
-    f = [s[1], s[2], s[3]]
-    f.__str__()
-    s[0] = f
+    p[0] = (s[1], s[2], s[3])
+    
 
 
-def p_gravity_Id(s):
+def p_gravity_Id(p):
     'GravityId : Gravity EQUALS Float'
-    f = [s[1], s[2], s[3]]
-    f.__str__()
-    s[0] = f
+    p[0]=(s[1], s[2], s[3])
+  
 	
 	
-def p_movement_rule(s):
+def p_movement_rule(p):
     #First move is in x, followed by y , endind with z
     'Movement : ID EQUALS Direction ID EQUALS Direction  ID EQUALS Direction'
-    s[0] = s[1] + s[2] + s[3] + s[4] + s[5] + s[6] + s[7] + s[8] + s[9]
-    f = [s[1], s[2], s[3], s[4], s[5], s[6], s[7], s[8], s[9]]
-    f.__str__()
-    s[0] = f
+    p[0] = (p[1],p[2],p[3],p[4],p[5],p[6],p[7],p[8] ,p[9])
+    
 
 
-def p_Direction(s):
+def p_Direction(p):
     '''Direction : Horizontal
     | NONE
     | Vertical'''
-    s[0] = s[1]
+    p[0] = p[1]
 	
 	
 def p_force_mode(s):
@@ -67,17 +53,17 @@ def p_force_mode(s):
                  | Impulse
                  | Acceleration
                  | NONE'''
-    s[0] = s[1]
+    p[0] = p[1]
 
 
 def p_action(s):
     '''Action : Jump
               | Dash
               | JetPack'''
-    s[0] = s[1]
+    p[0] = p[1]
 
 
-def p_KeyCode(s):
+def p_KeyCode(p):
     '''KeyCode : 
           | KeyCode_A
           | KeyCode_B
@@ -159,43 +145,39 @@ def p_KeyCode(s):
 		  | KeyCode_BackQuote
 		  
 '''
-    s[0] = s[1]
+    p[0] = p[1]
 
 
-def p_Jump(s):
+def p_Jump( p):
     '''Jump : JUMP EQUALS KeyCode
             | JUMP EQUALS KeyCode Action'''
-    if len(s) == 2:
-        s[0] = s[1]
+    if len(p) == 3:
+        p[0] = (p[1],p[2],p[3])
     else:
-        f = [s[1]]
-        f.extend(s[2])
-        s[0] = f
+       
+        p[0] = (p[1],p[2],p[3],p[4])
 
 
-def p_Dash(s):
+def p_Dash(p):
     '''Dash : DASH EQUALS KeyCode
             | DASH EQUALS KeyCode Action'''
-    if len(s) == 2:
-        s[0] = s[1]
+    if len(p) == 3:
+        p[0] = (p[1],p[2],p[3])
     else:
-        f = [s[1]]
-        f.extend(s[2])
-        s[0] = f
+       
+        p[0] = (p[1],p[2],p[3],p[4])
 
 
-def p_JetPack(s):
+def p_JetPack(p):
     '''JetPack : JETPACK EQUALS KeyCode
             | JETPACK EQUALS KeyCode Action'''
-    if len(s) == 2:
-        s[0] = s[1]
+    if len(p) == 3:
+        p[0] = (p[1],p[2],p[3])
     else:
-        f = [s[1]]
-        f.extend(s[2])
-        s[0] = f
+       
+        p[0] = (p[1],p[2],p[3],p[4])
 
-
-def p_error(s):
+def p_error(p):
     print("Syntax error in input")
     # Will not raise a flag
 
