@@ -1,71 +1,37 @@
 code = []
-variables = {}
-keys = []
-actions = []
-
-def create_variable(command):
-    variables[command[1]] = command[2]
-    print(variables)
+type = 'HEY'
 
 
-def move(command):
-    if command[1] == "RIGIDBODY":
-        initial_rigid_body(variables[1], variables[2], variables[3])
-        if command[2] == "Jump":
-            jump_rigid_body()
-        """
-        if command[3] == "Dash":
-            
-        if command[4] == "Jetpack":
-        """
-    elif command[1] == "CHARACTERCONTROLLER":
-        initial_char_cont(variables[1], variables[2], variables[3])
-        if command[2] == "Jump":
-            jump_char_cont()
-        if command[3] == "Dash":
-            sprint_char_cont()
-        'if command[4] == "Jetpack":'
-        end_char_cont()
+
+def set_scripttype(sct):
+    global type
+    type = sct
+    print(type)
 
 
-def initial_rigid_body(speed, horizontal, vertical):
-    block =  "using System.Collections;\n" \
-            "using System.Collections.Generic;\n" \
-            "using UnityEngine;\n" \
-            "\n" \ 
-            "public class RigidMovement : MonoBehaviour {\n" \
-            "string _movementX = \"" + horizontal + "\";\n" \
-            "\n" \
-            "string _movementZ = \"" + vertical + "\";\n" \
-            "\n" \
-            "_speed = " + speed + ";\n" \
-            "\n" \
-            "Rigidbody _rigidBody;\n" \
-            "float _moveX;\n" \
-            "float _moveZ;\n" \
-            "float dist_to_ground = 1f;\n" \
-            "\n" \
-            "void Start() {\n" \
-            "_rigidBody = this.GetComponent<Rigidbody>();\n" \
-            "\n" \
-            "if (_rigidBody == null)\n {" \
-            "Debug.LogError(\"Rigid body could not be found.\");\n" \
-            "}\n" \
-            "}\n" \
-            "\n" \
-            "// Update is called once per frame\n" \
-            "void Update() {\n" \
-            "_moveX = Input.GetAxis(_movementX);\n" \
-            "_moveZ = Input.GetAxis(_movementZ);\n" \
-            "}\n" \
-            "void FixedUpdate() {\n" \
-            "\n" \
-            "if (_rigidBody != null) {\n" \
-            "Vector3 moveVector = new Vector3(_moveX, 0, _moveZ) * _speed;\n" \
-            "_rigidBody.AddForce(moveVector, ForceMode.Acceleration);\n"
-    code.append(block)
+def initial_rigid_body(speed):
+    print ("using System.Collections;\n" )
+    print ("using System.Collections.Generic;\n" )
+    print ( "using UnityEngine;\n" )
+    print ( "public class RigidMovement:MonoBehaviour \n { \n" )
+    print ( "_speed = " + speed + ";\n")
 
 
+def move(x,y,z):
+    if (type  == 'RIGIDBODY'):
+        print ("string _movementX = \"" + x + "\" \n" )
+        print ( "string _movementZ = \"" + z + "\" \n" )
+        print ("Rigidbody _rigidBody; \n float _moveX; \n float _moveZ; \n float dist_to_ground = 1f;" )
+        print ( "void Start() \n {")
+        print ("  _rigidBody = this.GetComponent<Rigidbody>(); \n  if (_rigidBody == null) \n { \n ")
+        print  ("Debug.LogError(\"Rigid body could not be found.\"); \n {")
+        print("void Update() \n { \n _moveX = Input.GetAxis(_movementX); \n _moveZ = Input.GetAxis(_movementZ); \n } \n ")
+        print("void FixedUpdate() \n { \n Vector3 moveVector = new Vector3(_moveX,0,_moveZ)*_speed;\n" )
+		
+
+def addForce(force):
+	print("_rigidBody.AddForce(moveVector,ForceMode."+force+"); \n")
+	
 def jump_rigid_body():
     block = "if(Input.GetKey(KeyCode.Space) && isGrounded()) {\n" \
             "jump();\n" \
@@ -161,3 +127,4 @@ def upload():
     file = open("player_movement.cs", 'w')
     file.write(final_code)
     file.close()
+

@@ -4,4 +4,5 @@ movex = Horizontal
 movey = NONE
 movez = Vertical
 Acceleration
-JUMP = KeyCode.Space
+JUMP = Key_Space
+DASH = Key_RightShift

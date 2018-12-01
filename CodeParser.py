@@ -2,27 +2,41 @@ from _testcapi import raise_exception
 
 import ply.yacc as yacc
 import CodeLexer
-
+import CodeGenerator as gen
 tokens = CodeLexer.tokens
 
+action_args = 0
+d_args = 0
+j_args = 0
+jet_args = 0
+keyList =[]
 
 def p_script_type(p):
     '''script : Simple
                 | RigidBody
                 | CharacterController'''
+
 def p_simple_script(p):
  'Simple : SIMPLE SpeedId Movement'
  p[0] = (p[1], p[2], p[3] )
 
    
+
 def p_rigid_script(p):
     'RigidBody : RIGIDBODY SpeedId  Movement  ForceMode  Action'
-    p[0] = (p[1], p[2], p[3], p[4], p[5])
-   
-def p_rigid_script(p):
-    'RigidBody : RIGIDBODY SpeedId  Movement  ForceMode  Action'
-    p[0] = (p[1], p[2], p[3], p[4], p[5])
-   
+    gen.set_scripttype('RIGIDBODY')
+    gen.initial_rigid_body(p[2])
+    x = p[3]
+    gen.move(x[0], x[1] ,x[2])
+    gen.addForce(p[4])
+    print(len(p[5]))
+    y = p[5]
+    print(y[1])
+    f = [p[1]]
+    f.extend( [ p[2], p[3], p[4], p[5] ] )
+    print (f)
+    p[0] = [f]
+
 
 
 def p_chraracter_controller_script(p):
@@ -33,7 +47,9 @@ def p_chraracter_controller_script(p):
 
 def p_speed_Id(p):
     'SpeedId : Speed EQUALS Float'
-    p[0] = (p[1], p[2], p[3])
+    print(type)
+    p[0] = (p[3])
+
     
 
 
@@ -46,8 +62,9 @@ def p_gravity_Id(p):
 def p_movement_rule(p):
     #First move is in x, followed by y , endind with z
     'Movement : ID EQUALS Direction ID EQUALS Direction  ID EQUALS Direction'
-    p[0] = (p[1],p[2],p[3],p[4],p[5],p[6],p[7],p[8] ,p[9])
-    
+
+    p[0] = p[3], p[6], p[9]
+
 
 
 def p_Direction(p):
@@ -66,130 +83,176 @@ def p_force_mode(p):
 
 
 def p_action(p):
-    '''Action : Jump
-              | Dash
-              | JetPack'''
-    p[0] = p[1]
+        '''Action : Jump
+                  | Dash
+                  | JetPack'''
+        p[0] = p[1]
+        global action_args
+        action_args += 1
+        if(action_args > 3):
+            p_error(p)
+
 
 
 def p_KeyCode(p):
     '''KeyCode : 
-          | KeyCode_A
-          | KeyCode_B
-          | KeyCode_C
-          | KeyCode_D
-          | KeyCode_E
-          | KeyCode_F
-          | KeyCode_G
-          | KeyCode_H
-          | KeyCode_I
-          | KeyCode_J
-          | KeyCode_K
-          | KeyCode_L
-          | KeyCode_M
-          | KeyCode_N
-          | KeyCode_O
-          | KeyCode_P
-          | KeyCode_Q
-          | KeyCode_R
-          | KeyCode_S
-          | KeyCode_T
-          | KeyCode_U
-          | KeyCode_V
-          | KeyCode_W
-          | KeyCode_X
-          | KeyCode_Y
-          | KeyCode_Z
-          | KeyCode_Backspace
-          | KeyCode_Tab
-          | KeyCode_SysReq
-          | KeyCode_Break
-          | KeyCode_CapsLock
-          | KeyCode_ScrollLock
-          | KeyCode_RightShift
-          | KeyCode_LeftShift
-          | KeyCode_RightControl
-          | KeyCode_LeftControl
-          | KeyCode_RightAlt
-          | KeyCode_LeftAlt
-          | KeyCode_RightCommand
-          | KeyCode_RightApple
-          | KeyCode_LeftCommand
-          | KeyCode_LeftWindows
-          | KeyCode_RightWindows
-          | KeyCode_AltGr
-          | KeyCode_Help
-          | KeyCode_Print
-          | KeyCode_Clear
-          | KeyCode_Return
-          | KeyCode_Pause
-          | KeyCode_Escape
-          | KeyCode_Space
-          | KeyCode_Exclaim
-          | KeyCode_DoubleQuote
-          | KeyCode_Hash
-          | KeyCode_Dollar
-		  | KeyCode_Ampersand
-		  | KeyCode_Quote
-		  | KeyCode_LeftParen
-		  | KeyCode_RightParen
-		  | KeyCode_Asterisk
-		  | KeyCode_Plus
-		  | KeyCode_Comma
-		  | KeyCode_Minus
-		  | KeyCode_Period
-		  | KeyCode_Slash
-		  | KeyCode_Colon
-		  | KeyCode_Semicolon
-		  | KeyCode_Less
-		  | KeyCode_Equals
-		  | KeyCode_Greater
-		  | KeyCode_Question
-		  | KeyCode_At
-		  | KeyCode_LeftBracket
-		  | KeyCode_Backslash
-		  | KeyCode_RightBracket
-		  | KeyCode_Caret
-		  | KeyCode_Underscore
-		  | KeyCode_BackQuote
+          | A
+          | B
+          | C
+          | D
+          | E
+          | F
+          | G
+          | H
+          | I
+          | J
+          | K
+          | L
+          | M
+          | N
+          | O
+          | P
+          | Q
+          | R
+          | S
+          | T
+          | U
+          | V
+          | W
+          | X
+          | Y
+          | Z
+          | Backspace
+          | Tab
+          | SysReq
+          | Break
+          | CapsLock
+          | ScrollLock
+          | RightShift
+          | LeftShift
+          | RightControl
+          | LeftControl
+          | RightAlt
+          | LeftAlt
+          | RightCommand
+          | RightApple
+          | LeftCommand
+          | LeftWindows
+          | RightWindows
+          | AltGr
+          | Help
+          | Print
+          | Clear
+          | Return
+          | Pause
+          | Escape
+          | Space
+          | Exclaim
+          | DoubleQuote
+          | Hash
+          | Dollar
+		  | Ampersand
+		  | Quote
+		  | LeftParen
+		  | RightParen
+		  | Asterisk
+		  | Plus
+		  | Comma
+		  | Minus
+		  | Period
+		  | Slash
+		  | Colon
+		  | Semicolon
+		  | Less
+		  | Equals
+		  | Greater
+		  | Question
+		  | At
+		  | LeftBracket
+		  | Backslash
+		  | RightBracket
+		  | Caret
+		  | Underscore
+		  | BackQuote
 		  
 '''
     p[0] = p[1]
-
+    keyList.append(p[1])
+    if check_repeated_keys(keyList) == True :
+        p_error(p)
 
 def p_Jump(p):
     '''Jump : JUMP EQUALS KeyCode
             | JUMP EQUALS KeyCode Action'''
+    global j_args
+    j_args += 1
+    if(j_args > 1):
+        print ("JUMP action can only be called once!!")
+        p_error(p)
+
     if(len(p)== 4):
-        p[0] = (p[1], p[2], p[3] )
+        p[0] = (p[1], p[3] )
     else:
-        p[0] = (p[1], p[2], p[3], p[4] )
+        f = [p[1], p[3]]
+        f.extend( p[4] )
+        p[0] = f
 
 
 def p_Dash(p):
     '''Dash : DASH EQUALS KeyCode
             | DASH EQUALS KeyCode Action'''
-    if (len(p) == 4):
-        p[0] = (p[1],p[2],p[3])
-    else:
-        p[0] = (p[1],p[2],p[3],p[4])
 
+    global d_args
+    d_args += 1
+    if (d_args > 1):
+        print ("DASH action can only be called once!!")
+        p_error(p)
+
+    if (len(p) == 4):
+        p[0] = (p[1], p[3])
+    else:
+        f = [p[1], p[3]]
+        f.extend(p[4])
+        p[0] = f
+
+
+	
 
 def p_JetPack(p):
     '''JetPack : JETPACK EQUALS KeyCode
             | JETPACK EQUALS KeyCode Action'''
+
+    global jet_args
+    jet_args += 1
+    if (jet_args > 1):
+        print ("DASH action can only be called once!!")
+        p_error(p)
+
     if (len(p) == 4):
-        p[0] = (p[1],p[2],p[3])
+        p[0] = (p[1], p[3])
     else:
-       
-        p[0] = (p[1],p[2],p[3],p[4])
+
+        f = [p[1], p[3]]
+        f.extend(p[4])
+        p[0] = f
 
 def p_error(p):
     print("Syntax error in input")
-    # Will not raise a flag
+    exit()
+
+def check_repeated_keys(keyList):
+    seen = set()
+    for x in keyList:
+        if x in seen:
+            print( "Key_"+ x +" Is already being used ")
+            return True
+        seen.add(x)
+    return False
+
 
 
 def translate(s):
+
     try:
         BotifulCode = open(s, 'r')
     except IOError:
@@ -197,11 +260,7 @@ def translate(s):
         exit()
 
     fileScript = BotifulCode.read()
-
     parser = yacc.yacc()
     res = parser.parse(fileScript)
+    print (type)
 
-	
-	
-file = 'script.txt'
-translate(file)

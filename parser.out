@@ -1,229 +1,2056 @@
 Created by PLY version 3.11 (http://www.dabeaz.com/ply)
 
-Unused terminals:
-
-    SIMPLE
-
 Grammar
 
 Rule 0     S' -> script
 Rule 1     script -> Simple
 Rule 2     script -> RigidBody
 Rule 3     script -> CharacterController
-Rule 4     RigidBody -> RIGIDBODY SpeedId Movement ForceMode Action
-Rule 5     CharacterController -> CHARACTERCONTROLLER SpeedId GravityId Movement ForceMode Action
-Rule 6     SpeedId -> Speed EQUALS Float
-Rule 7     GravityId -> Gravity EQUALS Float
-Rule 8     Movement -> ID EQUALS Direction ID EQUALS Direction ID EQUALS Direction
-Rule 9     Direction -> Horizontal
-Rule 10    Direction -> NONE
-Rule 11    Direction -> Vertical
-Rule 12    ForceMode -> Force
-Rule 13    ForceMode -> Impulse
-Rule 14    ForceMode -> Acceleration
-Rule 15    ForceMode -> NONE
-Rule 16    Action -> Jump
-Rule 17    Action -> Dash
-Rule 18    Action -> JetPack
-Rule 19    KeyCode -> <empty>
-Rule 20    KeyCode -> KeyCode_A
-Rule 21    KeyCode -> KeyCode_B
-Rule 22    KeyCode -> KeyCode_C
-Rule 23    KeyCode -> KeyCode_D
-Rule 24    KeyCode -> KeyCode_E
-Rule 25    KeyCode -> KeyCode_F
-Rule 26    KeyCode -> KeyCode_G
-Rule 27    KeyCode -> KeyCode_H
-Rule 28    KeyCode -> KeyCode_I
-Rule 29    KeyCode -> KeyCode_J
-Rule 30    KeyCode -> KeyCode_K
-Rule 31    KeyCode -> KeyCode_L
-Rule 32    KeyCode -> KeyCode_M
-Rule 33    KeyCode -> KeyCode_N
-Rule 34    KeyCode -> KeyCode_O
-Rule 35    KeyCode -> KeyCode_P
-Rule 36    KeyCode -> KeyCode_Q
-Rule 37    KeyCode -> KeyCode_R
-Rule 38    KeyCode -> KeyCode_S
-Rule 39    KeyCode -> KeyCode_T
-Rule 40    KeyCode -> KeyCode_U
-Rule 41    KeyCode -> KeyCode_V
-Rule 42    KeyCode -> KeyCode_W
-Rule 43    KeyCode -> KeyCode_X
-Rule 44    KeyCode -> KeyCode_Y
-Rule 45    KeyCode -> KeyCode_Z
-Rule 46    KeyCode -> KeyCode_Backspace
-Rule 47    KeyCode -> KeyCode_Tab
-Rule 48    KeyCode -> KeyCode_SysReq
-Rule 49    KeyCode -> KeyCode_Break
-Rule 50    KeyCode -> KeyCode_CapsLock
-Rule 51    KeyCode -> KeyCode_ScrollLock
-Rule 52    KeyCode -> KeyCode_RightShift
-Rule 53    KeyCode -> KeyCode_LeftShift
-Rule 54    KeyCode -> KeyCode_RightControl
-Rule 55    KeyCode -> KeyCode_LeftControl
-Rule 56    KeyCode -> KeyCode_RightAlt
-Rule 57    KeyCode -> KeyCode_LeftAlt
-Rule 58    KeyCode -> KeyCode_RightCommand
-Rule 59    KeyCode -> KeyCode_RightApple
-Rule 60    KeyCode -> KeyCode_LeftCommand
-Rule 61    KeyCode -> KeyCode_LeftWindows
-Rule 62    KeyCode -> KeyCode_RightWindows
-Rule 63    KeyCode -> KeyCode_AltGr
-Rule 64    KeyCode -> KeyCode_Help
-Rule 65    KeyCode -> KeyCode_Print
-Rule 66    KeyCode -> KeyCode_Clear
-Rule 67    KeyCode -> KeyCode_Return
-Rule 68    KeyCode -> KeyCode_Pause
-Rule 69    KeyCode -> KeyCode_Escape
-Rule 70    KeyCode -> KeyCode_Space
-Rule 71    KeyCode -> KeyCode_Exclaim
-Rule 72    KeyCode -> KeyCode_DoubleQuote
-Rule 73    KeyCode -> KeyCode_Hash
-Rule 74    KeyCode -> KeyCode_Dollar
-Rule 75    KeyCode -> KeyCode_Ampersand
-Rule 76    KeyCode -> KeyCode_Quote
-Rule 77    KeyCode -> KeyCode_LeftParen
-Rule 78    KeyCode -> KeyCode_RightParen
-Rule 79    KeyCode -> KeyCode_Asterisk
-Rule 80    KeyCode -> KeyCode_Plus
-Rule 81    KeyCode -> KeyCode_Comma
-Rule 82    KeyCode -> KeyCode_Minus
-Rule 83    KeyCode -> KeyCode_Period
-Rule 84    KeyCode -> KeyCode_Slash
-Rule 85    KeyCode -> KeyCode_Colon
-Rule 86    KeyCode -> KeyCode_Semicolon
-Rule 87    KeyCode -> KeyCode_Less
-Rule 88    KeyCode -> KeyCode_Equals
-Rule 89    KeyCode -> KeyCode_Greater
-Rule 90    KeyCode -> KeyCode_Question
-Rule 91    KeyCode -> KeyCode_At
-Rule 92    KeyCode -> KeyCode_LeftBracket
-Rule 93    KeyCode -> KeyCode_Backslash
-Rule 94    KeyCode -> KeyCode_RightBracket
-Rule 95    KeyCode -> KeyCode_Caret
-Rule 96    KeyCode -> KeyCode_Underscore
-Rule 97    KeyCode -> KeyCode_BackQuote
-Rule 98    Jump -> JUMP EQUALS KeyCode
-Rule 99    Jump -> JUMP EQUALS KeyCode Action
-Rule 100   Dash -> DASH EQUALS KeyCode
-Rule 101   Dash -> DASH EQUALS KeyCode Action
-Rule 102   JetPack -> JETPACK EQUALS KeyCode
-Rule 103   JetPack -> JETPACK EQUALS KeyCode Action
+Rule 4     Simple -> SIMPLE SpeedId Movement
+Rule 5     RigidBody -> RIGIDBODY SpeedId Movement ForceMode Action
+Rule 6     CharacterController -> CHARACTERCONTROLLER SpeedId GravityId Movement ForceMode Action
+Rule 7     SpeedId -> Speed EQUALS Float
+Rule 8     GravityId -> Gravity EQUALS Float
+Rule 9     Movement -> ID EQUALS Direction ID EQUALS Direction ID EQUALS Direction
+Rule 10    Direction -> Horizontal
+Rule 11    Direction -> NONE
+Rule 12    Direction -> Vertical
+Rule 13    ForceMode -> Force
+Rule 14    ForceMode -> Impulse
+Rule 15    ForceMode -> Acceleration
+Rule 16    ForceMode -> NONE
+Rule 17    Action -> Jump
+Rule 18    Action -> Dash
+Rule 19    Action -> JetPack
+Rule 20    KeyCode -> <empty>
+Rule 21    KeyCode -> A
+Rule 22    KeyCode -> B
+Rule 23    KeyCode -> C
+Rule 24    KeyCode -> D
+Rule 25    KeyCode -> E
+Rule 26    KeyCode -> F
+Rule 27    KeyCode -> G
+Rule 28    KeyCode -> H
+Rule 29    KeyCode -> I
+Rule 30    KeyCode -> J
+Rule 31    KeyCode -> K
+Rule 32    KeyCode -> L
+Rule 33    KeyCode -> M
+Rule 34    KeyCode -> N
+Rule 35    KeyCode -> O
+Rule 36    KeyCode -> P
+Rule 37    KeyCode -> Q
+Rule 38    KeyCode -> R
+Rule 39    KeyCode -> S
+Rule 40    KeyCode -> T
+Rule 41    KeyCode -> U
+Rule 42    KeyCode -> V
+Rule 43    KeyCode -> W
+Rule 44    KeyCode -> X
+Rule 45    KeyCode -> Y
+Rule 46    KeyCode -> Z
+Rule 47    KeyCode -> Backspace
+Rule 48    KeyCode -> Tab
+Rule 49    KeyCode -> SysReq
+Rule 50    KeyCode -> Break
+Rule 51    KeyCode -> CapsLock
+Rule 52    KeyCode -> ScrollLock
+Rule 53    KeyCode -> RightShift
+Rule 54    KeyCode -> LeftShift
+Rule 55    KeyCode -> RightControl
+Rule 56    KeyCode -> LeftControl
+Rule 57    KeyCode -> RightAlt
+Rule 58    KeyCode -> LeftAlt
+Rule 59    KeyCode -> RightCommand
+Rule 60    KeyCode -> RightApple
+Rule 61    KeyCode -> LeftCommand
+Rule 62    KeyCode -> LeftWindows
+Rule 63    KeyCode -> RightWindows
+Rule 64    KeyCode -> AltGr
+Rule 65    KeyCode -> Help
+Rule 66    KeyCode -> Print
+Rule 67    KeyCode -> Clear
+Rule 68    KeyCode -> Return
+Rule 69    KeyCode -> Pause
+Rule 70    KeyCode -> Escape
+Rule 71    KeyCode -> Space
+Rule 72    KeyCode -> Exclaim
+Rule 73    KeyCode -> DoubleQuote
+Rule 74    KeyCode -> Hash
+Rule 75    KeyCode -> Dollar
+Rule 76    KeyCode -> Ampersand
+Rule 77    KeyCode -> Quote
+Rule 78    KeyCode -> LeftParen
+Rule 79    KeyCode -> RightParen
+Rule 80    KeyCode -> Asterisk
+Rule 81    KeyCode -> Plus
+Rule 82    KeyCode -> Comma
+Rule 83    KeyCode -> Minus
+Rule 84    KeyCode -> Period
+Rule 85    KeyCode -> Slash
+Rule 86    KeyCode -> Colon
+Rule 87    KeyCode -> Semicolon
+Rule 88    KeyCode -> Less
+Rule 89    KeyCode -> Equals
+Rule 90    KeyCode -> Greater
+Rule 91    KeyCode -> Question
+Rule 92    KeyCode -> At
+Rule 93    KeyCode -> LeftBracket
+Rule 94    KeyCode -> Backslash
+Rule 95    KeyCode -> RightBracket
+Rule 96    KeyCode -> Caret
+Rule 97    KeyCode -> Underscore
+Rule 98    KeyCode -> BackQuote
+Rule 99    Jump -> JUMP EQUALS KeyCode
+Rule 100   Jump -> JUMP EQUALS KeyCode Action
+Rule 101   Dash -> DASH EQUALS KeyCode
+Rule 102   Dash -> DASH EQUALS KeyCode Action
+Rule 103   JetPack -> JETPACK EQUALS KeyCode
+Rule 104   JetPack -> JETPACK EQUALS KeyCode Action
 
 Terminals, with rules where they appear
 
-Acceleration         : 14
-CHARACTERCONTROLLER  : 5
-DASH                 : 100 101
-EQUALS               : 6 7 8 8 8 98 99 100 101 102 103
-Float                : 6 7
-Force                : 12
-Gravity              : 7
-Horizontal           : 9
-ID                   : 8 8 8
-Impulse              : 13
-JETPACK              : 102 103
-JUMP                 : 98 99
-KeyCode_A            : 20
-KeyCode_AltGr        : 63
-KeyCode_Ampersand    : 75
-KeyCode_Asterisk     : 79
-KeyCode_At           : 91
-KeyCode_B            : 21
-KeyCode_BackQuote    : 97
-KeyCode_Backslash    : 93
-KeyCode_Backspace    : 46
-KeyCode_Break        : 49
-KeyCode_C            : 22
-KeyCode_CapsLock     : 50
-KeyCode_Caret        : 95
-KeyCode_Clear        : 66
-KeyCode_Colon        : 85
-KeyCode_Comma        : 81
-KeyCode_D            : 23
-KeyCode_Dollar       : 74
-KeyCode_DoubleQuote  : 72
-KeyCode_E            : 24
-KeyCode_Equals       : 88
-KeyCode_Escape       : 69
-KeyCode_Exclaim      : 71
-KeyCode_F            : 25
-KeyCode_G            : 26
-KeyCode_Greater      : 89
-KeyCode_H            : 27
-KeyCode_Hash         : 73
-KeyCode_Help         : 64
-KeyCode_I            : 28
-KeyCode_J            : 29
-KeyCode_K            : 30
-KeyCode_L            : 31
-KeyCode_LeftAlt      : 57
-KeyCode_LeftBracket  : 92
-KeyCode_LeftCommand  : 60
-KeyCode_LeftControl  : 55
-KeyCode_LeftParen    : 77
-KeyCode_LeftShift    : 53
-KeyCode_LeftWindows  : 61
-KeyCode_Less         : 87
-KeyCode_M            : 32
-KeyCode_Minus        : 82
-KeyCode_N            : 33
-KeyCode_O            : 34
-KeyCode_P            : 35
-KeyCode_Pause        : 68
-KeyCode_Period       : 83
-KeyCode_Plus         : 80
-KeyCode_Print        : 65
-KeyCode_Q            : 36
-KeyCode_Question     : 90
-KeyCode_Quote        : 76
-KeyCode_R            : 37
-KeyCode_Return       : 67
-KeyCode_RightAlt     : 56
-KeyCode_RightApple   : 59
-KeyCode_RightBracket : 94
-KeyCode_RightCommand : 58
-KeyCode_RightControl : 54
-KeyCode_RightParen   : 78
-KeyCode_RightShift   : 52
-KeyCode_RightWindows : 62
-KeyCode_S            : 38
-KeyCode_ScrollLock   : 51
-KeyCode_Semicolon    : 86
-KeyCode_Slash        : 84
-KeyCode_Space        : 70
-KeyCode_SysReq       : 48
-KeyCode_T            : 39
-KeyCode_Tab          : 47
-KeyCode_U            : 40
-KeyCode_Underscore   : 96
-KeyCode_V            : 41
-KeyCode_W            : 42
-KeyCode_X            : 43
-KeyCode_Y            : 44
-KeyCode_Z            : 45
-NONE                 : 10 15
-RIGIDBODY            : 4
-SIMPLE               : 
-Speed                : 6
-Vertical             : 11
+A                    : 21
+Acceleration         : 15
+AltGr                : 64
+Ampersand            : 76
+Asterisk             : 80
+At                   : 92
+B                    : 22
+BackQuote            : 98
+Backslash            : 94
+Backspace            : 47
+Break                : 50
+C                    : 23
+CHARACTERCONTROLLER  : 6
+CapsLock             : 51
+Caret                : 96
+Clear                : 67
+Colon                : 86
+Comma                : 82
+D                    : 24
+DASH                 : 101 102
+Dollar               : 75
+DoubleQuote          : 73
+E                    : 25
+EQUALS               : 7 8 9 9 9 99 100 101 102 103 104
+Equals               : 89
+Escape               : 70
+Exclaim              : 72
+F                    : 26
+Float                : 7 8
+Force                : 13
+G                    : 27
+Gravity              : 8
+Greater              : 90
+H                    : 28
+Hash                 : 74
+Help                 : 65
+Horizontal           : 10
+I                    : 29
+ID                   : 9 9 9
+Impulse              : 14
+J                    : 30
+JETPACK              : 103 104
+JUMP                 : 99 100
+K                    : 31
+L                    : 32
+LeftAlt              : 58
+LeftBracket          : 93
+LeftCommand          : 61
+LeftControl          : 56
+LeftParen            : 78
+LeftShift            : 54
+LeftWindows          : 62
+Less                 : 88
+M                    : 33
+Minus                : 83
+N                    : 34
+NONE                 : 11 16
+O                    : 35
+P                    : 36
+Pause                : 69
+Period               : 84
+Plus                 : 81
+Print                : 66
+Q                    : 37
+Question             : 91
+Quote                : 77
+R                    : 38
+RIGIDBODY            : 5
+Return               : 68
+RightAlt             : 57
+RightApple           : 60
+RightBracket         : 95
+RightCommand         : 59
+RightControl         : 55
+RightParen           : 79
+RightShift           : 53
+RightWindows         : 63
+S                    : 39
+SIMPLE               : 4
+ScrollLock           : 52
+Semicolon            : 87
+Slash                : 85
+Space                : 71
+Speed                : 7
+SysReq               : 49
+T                    : 40
+Tab                  : 48
+U                    : 41
+Underscore           : 97
+V                    : 42
+Vertical             : 12
+W                    : 43
+X                    : 44
+Y                    : 45
+Z                    : 46
 error                : 
 
 Nonterminals, with rules where they appear
 
-Action               : 4 5 99 101 103
+Action               : 5 6 100 102 104
 CharacterController  : 3
-Dash                 : 17
-Direction            : 8 8 8
-ForceMode            : 4 5
-GravityId            : 5
-JetPack              : 18
-Jump                 : 16
-KeyCode              : 98 99 100 101 102 103
-Movement             : 4 5
+Dash                 : 18
+Direction            : 9 9 9
+ForceMode            : 5 6
+GravityId            : 6
+JetPack              : 19
+Jump                 : 17
+KeyCode              : 99 100 101 102 103 104
+Movement             : 4 5 6
 RigidBody            : 2
 Simple               : 1
-SpeedId              : 4 5
+SpeedId              : 4 5 6
 script               : 0
+
+Parsing method: LALR
+
+state 0
+
+    (0) S' -> . script
+    (1) script -> . Simple
+    (2) script -> . RigidBody
+    (3) script -> . CharacterController
+    (4) Simple -> . SIMPLE SpeedId Movement
+    (5) RigidBody -> . RIGIDBODY SpeedId Movement ForceMode Action
+    (6) CharacterController -> . CHARACTERCONTROLLER SpeedId GravityId Movement ForceMode Action
+
+    SIMPLE          shift and go to state 5
+    RIGIDBODY       shift and go to state 6
+    CHARACTERCONTROLLER shift and go to state 7
+
+    script                         shift and go to state 1
+    Simple                         shift and go to state 2
+    RigidBody                      shift and go to state 3
+    CharacterController            shift and go to state 4
+
+state 1
+
+    (0) S' -> script .
+
+
+
+state 2
+
+    (1) script -> Simple .
+
+    $end            reduce using rule 1 (script -> Simple .)
+
+
+state 3
+
+    (2) script -> RigidBody .
+
+    $end            reduce using rule 2 (script -> RigidBody .)
+
+
+state 4
+
+    (3) script -> CharacterController .
+
+    $end            reduce using rule 3 (script -> CharacterController .)
+
+
+state 5
+
+    (4) Simple -> SIMPLE . SpeedId Movement
+    (7) SpeedId -> . Speed EQUALS Float
+
+    Speed           shift and go to state 9
+
+    SpeedId                        shift and go to state 8
+
+state 6
+
+    (5) RigidBody -> RIGIDBODY . SpeedId Movement ForceMode Action
+    (7) SpeedId -> . Speed EQUALS Float
+
+    Speed           shift and go to state 9
+
+    SpeedId                        shift and go to state 10
+
+state 7
+
+    (6) CharacterController -> CHARACTERCONTROLLER . SpeedId GravityId Movement ForceMode Action
+    (7) SpeedId -> . Speed EQUALS Float
+
+    Speed           shift and go to state 9
+
+    SpeedId                        shift and go to state 11
+
+state 8
+
+    (4) Simple -> SIMPLE SpeedId . Movement
+    (9) Movement -> . ID EQUALS Direction ID EQUALS Direction ID EQUALS Direction
+
+    ID              shift and go to state 13
+
+    Movement                       shift and go to state 12
+
+state 9
+
+    (7) SpeedId -> Speed . EQUALS Float
+
+    EQUALS          shift and go to state 14
+
+
+state 10
+
+    (5) RigidBody -> RIGIDBODY SpeedId . Movement ForceMode Action
+    (9) Movement -> . ID EQUALS Direction ID EQUALS Direction ID EQUALS Direction
+
+    ID              shift and go to state 13
+
+    Movement                       shift and go to state 15
+
+state 11
+
+    (6) CharacterController -> CHARACTERCONTROLLER SpeedId . GravityId Movement ForceMode Action
+    (8) GravityId -> . Gravity EQUALS Float
+
+    Gravity         shift and go to state 17
+
+    GravityId                      shift and go to state 16
+
+state 12
+
+    (4) Simple -> SIMPLE SpeedId Movement .
+
+    $end            reduce using rule 4 (Simple -> SIMPLE SpeedId Movement .)
+
+
+state 13
+
+    (9) Movement -> ID . EQUALS Direction ID EQUALS Direction ID EQUALS Direction
+
+    EQUALS          shift and go to state 18
+
+
+state 14
+
+    (7) SpeedId -> Speed EQUALS . Float
+
+    Float           shift and go to state 19
+
+
+state 15
+
+    (5) RigidBody -> RIGIDBODY SpeedId Movement . ForceMode Action
+    (13) ForceMode -> . Force
+    (14) ForceMode -> . Impulse
+    (15) ForceMode -> . Acceleration
+    (16) ForceMode -> . NONE
+
+    Force           shift and go to state 21
+    Impulse         shift and go to state 22
+    Acceleration    shift and go to state 23
+    NONE            shift and go to state 24
+
+    ForceMode                      shift and go to state 20
+
+state 16
+
+    (6) CharacterController -> CHARACTERCONTROLLER SpeedId GravityId . Movement ForceMode Action
+    (9) Movement -> . ID EQUALS Direction ID EQUALS Direction ID EQUALS Direction
+
+    ID              shift and go to state 13
+
+    Movement                       shift and go to state 25
+
+state 17
+
+    (8) GravityId -> Gravity . EQUALS Float
+
+    EQUALS          shift and go to state 26
+
+
+state 18
+
+    (9) Movement -> ID EQUALS . Direction ID EQUALS Direction ID EQUALS Direction
+    (10) Direction -> . Horizontal
+    (11) Direction -> . NONE
+    (12) Direction -> . Vertical
+
+    Horizontal      shift and go to state 28
+    NONE            shift and go to state 29
+    Vertical        shift and go to state 30
+
+    Direction                      shift and go to state 27
+
+state 19
+
+    (7) SpeedId -> Speed EQUALS Float .
+
+    ID              reduce using rule 7 (SpeedId -> Speed EQUALS Float .)
+    Gravity         reduce using rule 7 (SpeedId -> Speed EQUALS Float .)
+
+
+state 20
+
+    (5) RigidBody -> RIGIDBODY SpeedId Movement ForceMode . Action
+    (17) Action -> . Jump
+    (18) Action -> . Dash
+    (19) Action -> . JetPack
+    (99) Jump -> . JUMP EQUALS KeyCode
+    (100) Jump -> . JUMP EQUALS KeyCode Action
+    (101) Dash -> . DASH EQUALS KeyCode
+    (102) Dash -> . DASH EQUALS KeyCode Action
+    (103) JetPack -> . JETPACK EQUALS KeyCode
+    (104) JetPack -> . JETPACK EQUALS KeyCode Action
+
+    JUMP            shift and go to state 35
+    DASH            shift and go to state 36
+    JETPACK         shift and go to state 37
+
+    Action                         shift and go to state 31
+    Jump                           shift and go to state 32
+    Dash                           shift and go to state 33
+    JetPack                        shift and go to state 34
+
+state 21
+
+    (13) ForceMode -> Force .
+
+    JUMP            reduce using rule 13 (ForceMode -> Force .)
+    DASH            reduce using rule 13 (ForceMode -> Force .)
+    JETPACK         reduce using rule 13 (ForceMode -> Force .)
+
+
+state 22
+
+    (14) ForceMode -> Impulse .
+
+    JUMP            reduce using rule 14 (ForceMode -> Impulse .)
+    DASH            reduce using rule 14 (ForceMode -> Impulse .)
+    JETPACK         reduce using rule 14 (ForceMode -> Impulse .)
+
+
+state 23
+
+    (15) ForceMode -> Acceleration .
+
+    JUMP            reduce using rule 15 (ForceMode -> Acceleration .)
+    DASH            reduce using rule 15 (ForceMode -> Acceleration .)
+    JETPACK         reduce using rule 15 (ForceMode -> Acceleration .)
+
+
+state 24
+
+    (16) ForceMode -> NONE .
+
+    JUMP            reduce using rule 16 (ForceMode -> NONE .)
+    DASH            reduce using rule 16 (ForceMode -> NONE .)
+    JETPACK         reduce using rule 16 (ForceMode -> NONE .)
+
+
+state 25
+
+    (6) CharacterController -> CHARACTERCONTROLLER SpeedId GravityId Movement . ForceMode Action
+    (13) ForceMode -> . Force
+    (14) ForceMode -> . Impulse
+    (15) ForceMode -> . Acceleration
+    (16) ForceMode -> . NONE
+
+    Force           shift and go to state 21
+    Impulse         shift and go to state 22
+    Acceleration    shift and go to state 23
+    NONE            shift and go to state 24
+
+    ForceMode                      shift and go to state 38
+
+state 26
+
+    (8) GravityId -> Gravity EQUALS . Float
+
+    Float           shift and go to state 39
+
+
+state 27
+
+    (9) Movement -> ID EQUALS Direction . ID EQUALS Direction ID EQUALS Direction
+
+    ID              shift and go to state 40
+
+
+state 28
+
+    (10) Direction -> Horizontal .
+
+    ID              reduce using rule 10 (Direction -> Horizontal .)
+    $end            reduce using rule 10 (Direction -> Horizontal .)
+    Force           reduce using rule 10 (Direction -> Horizontal .)
+    Impulse         reduce using rule 10 (Direction -> Horizontal .)
+    Acceleration    reduce using rule 10 (Direction -> Horizontal .)
+    NONE            reduce using rule 10 (Direction -> Horizontal .)
+
+
+state 29
+
+    (11) Direction -> NONE .
+
+    ID              reduce using rule 11 (Direction -> NONE .)
+    $end            reduce using rule 11 (Direction -> NONE .)
+    Force           reduce using rule 11 (Direction -> NONE .)
+    Impulse         reduce using rule 11 (Direction -> NONE .)
+    Acceleration    reduce using rule 11 (Direction -> NONE .)
+    NONE            reduce using rule 11 (Direction -> NONE .)
+
+
+state 30
+
+    (12) Direction -> Vertical .
+
+    ID              reduce using rule 12 (Direction -> Vertical .)
+    $end            reduce using rule 12 (Direction -> Vertical .)
+    Force           reduce using rule 12 (Direction -> Vertical .)
+    Impulse         reduce using rule 12 (Direction -> Vertical .)
+    Acceleration    reduce using rule 12 (Direction -> Vertical .)
+    NONE            reduce using rule 12 (Direction -> Vertical .)
+
+
+state 31
+
+    (5) RigidBody -> RIGIDBODY SpeedId Movement ForceMode Action .
+
+    $end            reduce using rule 5 (RigidBody -> RIGIDBODY SpeedId Movement ForceMode Action .)
+
+
+state 32
+
+    (17) Action -> Jump .
+
+    $end            reduce using rule 17 (Action -> Jump .)
+
+
+state 33
+
+    (18) Action -> Dash .
+
+    $end            reduce using rule 18 (Action -> Dash .)
+
+
+state 34
+
+    (19) Action -> JetPack .
+
+    $end            reduce using rule 19 (Action -> JetPack .)
+
+
+state 35
+
+    (99) Jump -> JUMP . EQUALS KeyCode
+    (100) Jump -> JUMP . EQUALS KeyCode Action
+
+    EQUALS          shift and go to state 41
+
+
+state 36
+
+    (101) Dash -> DASH . EQUALS KeyCode
+    (102) Dash -> DASH . EQUALS KeyCode Action
+
+    EQUALS          shift and go to state 42
+
+
+state 37
+
+    (103) JetPack -> JETPACK . EQUALS KeyCode
+    (104) JetPack -> JETPACK . EQUALS KeyCode Action
+
+    EQUALS          shift and go to state 43
+
+
+state 38
+
+    (6) CharacterController -> CHARACTERCONTROLLER SpeedId GravityId Movement ForceMode . Action
+    (17) Action -> . Jump
+    (18) Action -> . Dash
+    (19) Action -> . JetPack
+    (99) Jump -> . JUMP EQUALS KeyCode
+    (100) Jump -> . JUMP EQUALS KeyCode Action
+    (101) Dash -> . DASH EQUALS KeyCode
+    (102) Dash -> . DASH EQUALS KeyCode Action
+    (103) JetPack -> . JETPACK EQUALS KeyCode
+    (104) JetPack -> . JETPACK EQUALS KeyCode Action
+
+    JUMP            shift and go to state 35
+    DASH            shift and go to state 36
+    JETPACK         shift and go to state 37
+
+    Action                         shift and go to state 44
+    Jump                           shift and go to state 32
+    Dash                           shift and go to state 33
+    JetPack                        shift and go to state 34
+
+state 39
+
+    (8) GravityId -> Gravity EQUALS Float .
+
+    ID              reduce using rule 8 (GravityId -> Gravity EQUALS Float .)
+
+
+state 40
+
+    (9) Movement -> ID EQUALS Direction ID . EQUALS Direction ID EQUALS Direction
+
+    EQUALS          shift and go to state 45
+
+
+state 41
+
+    (99) Jump -> JUMP EQUALS . KeyCode
+    (100) Jump -> JUMP EQUALS . KeyCode Action
+    (20) KeyCode -> .
+    (21) KeyCode -> . A
+    (22) KeyCode -> . B
+    (23) KeyCode -> . C
+    (24) KeyCode -> . D
+    (25) KeyCode -> . E
+    (26) KeyCode -> . F
+    (27) KeyCode -> . G
+    (28) KeyCode -> . H
+    (29) KeyCode -> . I
+    (30) KeyCode -> . J
+    (31) KeyCode -> . K
+    (32) KeyCode -> . L
+    (33) KeyCode -> . M
+    (34) KeyCode -> . N
+    (35) KeyCode -> . O
+    (36) KeyCode -> . P
+    (37) KeyCode -> . Q
+    (38) KeyCode -> . R
+    (39) KeyCode -> . S
+    (40) KeyCode -> . T
+    (41) KeyCode -> . U
+    (42) KeyCode -> . V
+    (43) KeyCode -> . W
+    (44) KeyCode -> . X
+    (45) KeyCode -> . Y
+    (46) KeyCode -> . Z
+    (47) KeyCode -> . Backspace
+    (48) KeyCode -> . Tab
+    (49) KeyCode -> . SysReq
+    (50) KeyCode -> . Break
+    (51) KeyCode -> . CapsLock
+    (52) KeyCode -> . ScrollLock
+    (53) KeyCode -> . RightShift
+    (54) KeyCode -> . LeftShift
+    (55) KeyCode -> . RightControl
+    (56) KeyCode -> . LeftControl
+    (57) KeyCode -> . RightAlt
+    (58) KeyCode -> . LeftAlt
+    (59) KeyCode -> . RightCommand
+    (60) KeyCode -> . RightApple
+    (61) KeyCode -> . LeftCommand
+    (62) KeyCode -> . LeftWindows
+    (63) KeyCode -> . RightWindows
+    (64) KeyCode -> . AltGr
+    (65) KeyCode -> . Help
+    (66) KeyCode -> . Print
+    (67) KeyCode -> . Clear
+    (68) KeyCode -> . Return
+    (69) KeyCode -> . Pause
+    (70) KeyCode -> . Escape
+    (71) KeyCode -> . Space
+    (72) KeyCode -> . Exclaim
+    (73) KeyCode -> . DoubleQuote
+    (74) KeyCode -> . Hash
+    (75) KeyCode -> . Dollar
+    (76) KeyCode -> . Ampersand
+    (77) KeyCode -> . Quote
+    (78) KeyCode -> . LeftParen
+    (79) KeyCode -> . RightParen
+    (80) KeyCode -> . Asterisk
+    (81) KeyCode -> . Plus
+    (82) KeyCode -> . Comma
+    (83) KeyCode -> . Minus
+    (84) KeyCode -> . Period
+    (85) KeyCode -> . Slash
+    (86) KeyCode -> . Colon
+    (87) KeyCode -> . Semicolon
+    (88) KeyCode -> . Less
+    (89) KeyCode -> . Equals
+    (90) KeyCode -> . Greater
+    (91) KeyCode -> . Question
+    (92) KeyCode -> . At
+    (93) KeyCode -> . LeftBracket
+    (94) KeyCode -> . Backslash
+    (95) KeyCode -> . RightBracket
+    (96) KeyCode -> . Caret
+    (97) KeyCode -> . Underscore
+    (98) KeyCode -> . BackQuote
+
+    JUMP            reduce using rule 20 (KeyCode -> .)
+    DASH            reduce using rule 20 (KeyCode -> .)
+    JETPACK         reduce using rule 20 (KeyCode -> .)
+    $end            reduce using rule 20 (KeyCode -> .)
+    A               shift and go to state 47
+    B               shift and go to state 48
+    C               shift and go to state 49
+    D               shift and go to state 50
+    E               shift and go to state 51
+    F               shift and go to state 52
+    G               shift and go to state 53
+    H               shift and go to state 54
+    I               shift and go to state 55
+    J               shift and go to state 56
+    K               shift and go to state 57
+    L               shift and go to state 58
+    M               shift and go to state 59
+    N               shift and go to state 60
+    O               shift and go to state 61
+    P               shift and go to state 62
+    Q               shift and go to state 63
+    R               shift and go to state 64
+    S               shift and go to state 65
+    T               shift and go to state 66
+    U               shift and go to state 67
+    V               shift and go to state 68
+    W               shift and go to state 69
+    X               shift and go to state 70
+    Y               shift and go to state 71
+    Z               shift and go to state 72
+    Backspace       shift and go to state 73
+    Tab             shift and go to state 74
+    SysReq          shift and go to state 75
+    Break           shift and go to state 76
+    CapsLock        shift and go to state 77
+    ScrollLock      shift and go to state 78
+    RightShift      shift and go to state 79
+    LeftShift       shift and go to state 80
+    RightControl    shift and go to state 81
+    LeftControl     shift and go to state 82
+    RightAlt        shift and go to state 83
+    LeftAlt         shift and go to state 84
+    RightCommand    shift and go to state 85
+    RightApple      shift and go to state 86
+    LeftCommand     shift and go to state 87
+    LeftWindows     shift and go to state 88
+    RightWindows    shift and go to state 89
+    AltGr           shift and go to state 90
+    Help            shift and go to state 91
+    Print           shift and go to state 92
+    Clear           shift and go to state 93
+    Return          shift and go to state 94
+    Pause           shift and go to state 95
+    Escape          shift and go to state 96
+    Space           shift and go to state 97
+    Exclaim         shift and go to state 98
+    DoubleQuote     shift and go to state 99
+    Hash            shift and go to state 100
+    Dollar          shift and go to state 101
+    Ampersand       shift and go to state 102
+    Quote           shift and go to state 103
+    LeftParen       shift and go to state 104
+    RightParen      shift and go to state 105
+    Asterisk        shift and go to state 106
+    Plus            shift and go to state 107
+    Comma           shift and go to state 108
+    Minus           shift and go to state 109
+    Period          shift and go to state 110
+    Slash           shift and go to state 111
+    Colon           shift and go to state 112
+    Semicolon       shift and go to state 113
+    Less            shift and go to state 114
+    Equals          shift and go to state 115
+    Greater         shift and go to state 116
+    Question        shift and go to state 117
+    At              shift and go to state 118
+    LeftBracket     shift and go to state 119
+    Backslash       shift and go to state 120
+    RightBracket    shift and go to state 121
+    Caret           shift and go to state 122
+    Underscore      shift and go to state 123
+    BackQuote       shift and go to state 124
+
+    KeyCode                        shift and go to state 46
+
+state 42
+
+    (101) Dash -> DASH EQUALS . KeyCode
+    (102) Dash -> DASH EQUALS . KeyCode Action
+    (20) KeyCode -> .
+    (21) KeyCode -> . A
+    (22) KeyCode -> . B
+    (23) KeyCode -> . C
+    (24) KeyCode -> . D
+    (25) KeyCode -> . E
+    (26) KeyCode -> . F
+    (27) KeyCode -> . G
+    (28) KeyCode -> . H
+    (29) KeyCode -> . I
+    (30) KeyCode -> . J
+    (31) KeyCode -> . K
+    (32) KeyCode -> . L
+    (33) KeyCode -> . M
+    (34) KeyCode -> . N
+    (35) KeyCode -> . O
+    (36) KeyCode -> . P
+    (37) KeyCode -> . Q
+    (38) KeyCode -> . R
+    (39) KeyCode -> . S
+    (40) KeyCode -> . T
+    (41) KeyCode -> . U
+    (42) KeyCode -> . V
+    (43) KeyCode -> . W
+    (44) KeyCode -> . X
+    (45) KeyCode -> . Y
+    (46) KeyCode -> . Z
+    (47) KeyCode -> . Backspace
+    (48) KeyCode -> . Tab
+    (49) KeyCode -> . SysReq
+    (50) KeyCode -> . Break
+    (51) KeyCode -> . CapsLock
+    (52) KeyCode -> . ScrollLock
+    (53) KeyCode -> . RightShift
+    (54) KeyCode -> . LeftShift
+    (55) KeyCode -> . RightControl
+    (56) KeyCode -> . LeftControl
+    (57) KeyCode -> . RightAlt
+    (58) KeyCode -> . LeftAlt
+    (59) KeyCode -> . RightCommand
+    (60) KeyCode -> . RightApple
+    (61) KeyCode -> . LeftCommand
+    (62) KeyCode -> . LeftWindows
+    (63) KeyCode -> . RightWindows
+    (64) KeyCode -> . AltGr
+    (65) KeyCode -> . Help
+    (66) KeyCode -> . Print
+    (67) KeyCode -> . Clear
+    (68) KeyCode -> . Return
+    (69) KeyCode -> . Pause
+    (70) KeyCode -> . Escape
+    (71) KeyCode -> . Space
+    (72) KeyCode -> . Exclaim
+    (73) KeyCode -> . DoubleQuote
+    (74) KeyCode -> . Hash
+    (75) KeyCode -> . Dollar
+    (76) KeyCode -> . Ampersand
+    (77) KeyCode -> . Quote
+    (78) KeyCode -> . LeftParen
+    (79) KeyCode -> . RightParen
+    (80) KeyCode -> . Asterisk
+    (81) KeyCode -> . Plus
+    (82) KeyCode -> . Comma
+    (83) KeyCode -> . Minus
+    (84) KeyCode -> . Period
+    (85) KeyCode -> . Slash
+    (86) KeyCode -> . Colon
+    (87) KeyCode -> . Semicolon
+    (88) KeyCode -> . Less
+    (89) KeyCode -> . Equals
+    (90) KeyCode -> . Greater
+    (91) KeyCode -> . Question
+    (92) KeyCode -> . At
+    (93) KeyCode -> . LeftBracket
+    (94) KeyCode -> . Backslash
+    (95) KeyCode -> . RightBracket
+    (96) KeyCode -> . Caret
+    (97) KeyCode -> . Underscore
+    (98) KeyCode -> . BackQuote
+
+    JUMP            reduce using rule 20 (KeyCode -> .)
+    DASH            reduce using rule 20 (KeyCode -> .)
+    JETPACK         reduce using rule 20 (KeyCode -> .)
+    $end            reduce using rule 20 (KeyCode -> .)
+    A               shift and go to state 47
+    B               shift and go to state 48
+    C               shift and go to state 49
+    D               shift and go to state 50
+    E               shift and go to state 51
+    F               shift and go to state 52
+    G               shift and go to state 53
+    H               shift and go to state 54
+    I               shift and go to state 55
+    J               shift and go to state 56
+    K               shift and go to state 57
+    L               shift and go to state 58
+    M               shift and go to state 59
+    N               shift and go to state 60
+    O               shift and go to state 61
+    P               shift and go to state 62
+    Q               shift and go to state 63
+    R               shift and go to state 64
+    S               shift and go to state 65
+    T               shift and go to state 66
+    U               shift and go to state 67
+    V               shift and go to state 68
+    W               shift and go to state 69
+    X               shift and go to state 70
+    Y               shift and go to state 71
+    Z               shift and go to state 72
+    Backspace       shift and go to state 73
+    Tab             shift and go to state 74
+    SysReq          shift and go to state 75
+    Break           shift and go to state 76
+    CapsLock        shift and go to state 77
+    ScrollLock      shift and go to state 78
+    RightShift      shift and go to state 79
+    LeftShift       shift and go to state 80
+    RightControl    shift and go to state 81
+    LeftControl     shift and go to state 82
+    RightAlt        shift and go to state 83
+    LeftAlt         shift and go to state 84
+    RightCommand    shift and go to state 85
+    RightApple      shift and go to state 86
+    LeftCommand     shift and go to state 87
+    LeftWindows     shift and go to state 88
+    RightWindows    shift and go to state 89
+    AltGr           shift and go to state 90
+    Help            shift and go to state 91
+    Print           shift and go to state 92
+    Clear           shift and go to state 93
+    Return          shift and go to state 94
+    Pause           shift and go to state 95
+    Escape          shift and go to state 96
+    Space           shift and go to state 97
+    Exclaim         shift and go to state 98
+    DoubleQuote     shift and go to state 99
+    Hash            shift and go to state 100
+    Dollar          shift and go to state 101
+    Ampersand       shift and go to state 102
+    Quote           shift and go to state 103
+    LeftParen       shift and go to state 104
+    RightParen      shift and go to state 105
+    Asterisk        shift and go to state 106
+    Plus            shift and go to state 107
+    Comma           shift and go to state 108
+    Minus           shift and go to state 109
+    Period          shift and go to state 110
+    Slash           shift and go to state 111
+    Colon           shift and go to state 112
+    Semicolon       shift and go to state 113
+    Less            shift and go to state 114
+    Equals          shift and go to state 115
+    Greater         shift and go to state 116
+    Question        shift and go to state 117
+    At              shift and go to state 118
+    LeftBracket     shift and go to state 119
+    Backslash       shift and go to state 120
+    RightBracket    shift and go to state 121
+    Caret           shift and go to state 122
+    Underscore      shift and go to state 123
+    BackQuote       shift and go to state 124
+
+    KeyCode                        shift and go to state 125
+
+state 43
+
+    (103) JetPack -> JETPACK EQUALS . KeyCode
+    (104) JetPack -> JETPACK EQUALS . KeyCode Action
+    (20) KeyCode -> .
+    (21) KeyCode -> . A
+    (22) KeyCode -> . B
+    (23) KeyCode -> . C
+    (24) KeyCode -> . D
+    (25) KeyCode -> . E
+    (26) KeyCode -> . F
+    (27) KeyCode -> . G
+    (28) KeyCode -> . H
+    (29) KeyCode -> . I
+    (30) KeyCode -> . J
+    (31) KeyCode -> . K
+    (32) KeyCode -> . L
+    (33) KeyCode -> . M
+    (34) KeyCode -> . N
+    (35) KeyCode -> . O
+    (36) KeyCode -> . P
+    (37) KeyCode -> . Q
+    (38) KeyCode -> . R
+    (39) KeyCode -> . S
+    (40) KeyCode -> . T
+    (41) KeyCode -> . U
+    (42) KeyCode -> . V
+    (43) KeyCode -> . W
+    (44) KeyCode -> . X
+    (45) KeyCode -> . Y
+    (46) KeyCode -> . Z
+    (47) KeyCode -> . Backspace
+    (48) KeyCode -> . Tab
+    (49) KeyCode -> . SysReq
+    (50) KeyCode -> . Break
+    (51) KeyCode -> . CapsLock
+    (52) KeyCode -> . ScrollLock
+    (53) KeyCode -> . RightShift
+    (54) KeyCode -> . LeftShift
+    (55) KeyCode -> . RightControl
+    (56) KeyCode -> . LeftControl
+    (57) KeyCode -> . RightAlt
+    (58) KeyCode -> . LeftAlt
+    (59) KeyCode -> . RightCommand
+    (60) KeyCode -> . RightApple
+    (61) KeyCode -> . LeftCommand
+    (62) KeyCode -> . LeftWindows
+    (63) KeyCode -> . RightWindows
+    (64) KeyCode -> . AltGr
+    (65) KeyCode -> . Help
+    (66) KeyCode -> . Print
+    (67) KeyCode -> . Clear
+    (68) KeyCode -> . Return
+    (69) KeyCode -> . Pause
+    (70) KeyCode -> . Escape
+    (71) KeyCode -> . Space
+    (72) KeyCode -> . Exclaim
+    (73) KeyCode -> . DoubleQuote
+    (74) KeyCode -> . Hash
+    (75) KeyCode -> . Dollar
+    (76) KeyCode -> . Ampersand
+    (77) KeyCode -> . Quote
+    (78) KeyCode -> . LeftParen
+    (79) KeyCode -> . RightParen
+    (80) KeyCode -> . Asterisk
+    (81) KeyCode -> . Plus
+    (82) KeyCode -> . Comma
+    (83) KeyCode -> . Minus
+    (84) KeyCode -> . Period
+    (85) KeyCode -> . Slash
+    (86) KeyCode -> . Colon
+    (87) KeyCode -> . Semicolon
+    (88) KeyCode -> . Less
+    (89) KeyCode -> . Equals
+    (90) KeyCode -> . Greater
+    (91) KeyCode -> . Question
+    (92) KeyCode -> . At
+    (93) KeyCode -> . LeftBracket
+    (94) KeyCode -> . Backslash
+    (95) KeyCode -> . RightBracket
+    (96) KeyCode -> . Caret
+    (97) KeyCode -> . Underscore
+    (98) KeyCode -> . BackQuote
+
+    JUMP            reduce using rule 20 (KeyCode -> .)
+    DASH            reduce using rule 20 (KeyCode -> .)
+    JETPACK         reduce using rule 20 (KeyCode -> .)
+    $end            reduce using rule 20 (KeyCode -> .)
+    A               shift and go to state 47
+    B               shift and go to state 48
+    C               shift and go to state 49
+    D               shift and go to state 50
+    E               shift and go to state 51
+    F               shift and go to state 52
+    G               shift and go to state 53
+    H               shift and go to state 54
+    I               shift and go to state 55
+    J               shift and go to state 56
+    K               shift and go to state 57
+    L               shift and go to state 58
+    M               shift and go to state 59
+    N               shift and go to state 60
+    O               shift and go to state 61
+    P               shift and go to state 62
+    Q               shift and go to state 63
+    R               shift and go to state 64
+    S               shift and go to state 65
+    T               shift and go to state 66
+    U               shift and go to state 67
+    V               shift and go to state 68
+    W               shift and go to state 69
+    X               shift and go to state 70
+    Y               shift and go to state 71
+    Z               shift and go to state 72
+    Backspace       shift and go to state 73
+    Tab             shift and go to state 74
+    SysReq          shift and go to state 75
+    Break           shift and go to state 76
+    CapsLock        shift and go to state 77
+    ScrollLock      shift and go to state 78
+    RightShift      shift and go to state 79
+    LeftShift       shift and go to state 80
+    RightControl    shift and go to state 81
+    LeftControl     shift and go to state 82
+    RightAlt        shift and go to state 83
+    LeftAlt         shift and go to state 84
+    RightCommand    shift and go to state 85
+    RightApple      shift and go to state 86
+    LeftCommand     shift and go to state 87
+    LeftWindows     shift and go to state 88
+    RightWindows    shift and go to state 89
+    AltGr           shift and go to state 90
+    Help            shift and go to state 91
+    Print           shift and go to state 92
+    Clear           shift and go to state 93
+    Return          shift and go to state 94
+    Pause           shift and go to state 95
+    Escape          shift and go to state 96
+    Space           shift and go to state 97
+    Exclaim         shift and go to state 98
+    DoubleQuote     shift and go to state 99
+    Hash            shift and go to state 100
+    Dollar          shift and go to state 101
+    Ampersand       shift and go to state 102
+    Quote           shift and go to state 103
+    LeftParen       shift and go to state 104
+    RightParen      shift and go to state 105
+    Asterisk        shift and go to state 106
+    Plus            shift and go to state 107
+    Comma           shift and go to state 108
+    Minus           shift and go to state 109
+    Period          shift and go to state 110
+    Slash           shift and go to state 111
+    Colon           shift and go to state 112
+    Semicolon       shift and go to state 113
+    Less            shift and go to state 114
+    Equals          shift and go to state 115
+    Greater         shift and go to state 116
+    Question        shift and go to state 117
+    At              shift and go to state 118
+    LeftBracket     shift and go to state 119
+    Backslash       shift and go to state 120
+    RightBracket    shift and go to state 121
+    Caret           shift and go to state 122
+    Underscore      shift and go to state 123
+    BackQuote       shift and go to state 124
+
+    KeyCode                        shift and go to state 126
+
+state 44
+
+    (6) CharacterController -> CHARACTERCONTROLLER SpeedId GravityId Movement ForceMode Action .
+
+    $end            reduce using rule 6 (CharacterController -> CHARACTERCONTROLLER SpeedId GravityId Movement ForceMode Action .)
+
+
+state 45
+
+    (9) Movement -> ID EQUALS Direction ID EQUALS . Direction ID EQUALS Direction
+    (10) Direction -> . Horizontal
+    (11) Direction -> . NONE
+    (12) Direction -> . Vertical
+
+    Horizontal      shift and go to state 28
+    NONE            shift and go to state 29
+    Vertical        shift and go to state 30
+
+    Direction                      shift and go to state 127
+
+state 46
+
+    (99) Jump -> JUMP EQUALS KeyCode .
+    (100) Jump -> JUMP EQUALS KeyCode . Action
+    (17) Action -> . Jump
+    (18) Action -> . Dash
+    (19) Action -> . JetPack
+    (99) Jump -> . JUMP EQUALS KeyCode
+    (100) Jump -> . JUMP EQUALS KeyCode Action
+    (101) Dash -> . DASH EQUALS KeyCode
+    (102) Dash -> . DASH EQUALS KeyCode Action
+    (103) JetPack -> . JETPACK EQUALS KeyCode
+    (104) JetPack -> . JETPACK EQUALS KeyCode Action
+
+    $end            reduce using rule 99 (Jump -> JUMP EQUALS KeyCode .)
+    JUMP            shift and go to state 35
+    DASH            shift and go to state 36
+    JETPACK         shift and go to state 37
+
+    Action                         shift and go to state 128
+    Jump                           shift and go to state 32
+    Dash                           shift and go to state 33
+    JetPack                        shift and go to state 34
+
+state 47
+
+    (21) KeyCode -> A .
+
+    JUMP            reduce using rule 21 (KeyCode -> A .)
+    DASH            reduce using rule 21 (KeyCode -> A .)
+    JETPACK         reduce using rule 21 (KeyCode -> A .)
+    $end            reduce using rule 21 (KeyCode -> A .)
+
+
+state 48
+
+    (22) KeyCode -> B .
+
+    JUMP            reduce using rule 22 (KeyCode -> B .)
+    DASH            reduce using rule 22 (KeyCode -> B .)
+    JETPACK         reduce using rule 22 (KeyCode -> B .)
+    $end            reduce using rule 22 (KeyCode -> B .)
+
+
+state 49
+
+    (23) KeyCode -> C .
+
+    JUMP            reduce using rule 23 (KeyCode -> C .)
+    DASH            reduce using rule 23 (KeyCode -> C .)
+    JETPACK         reduce using rule 23 (KeyCode -> C .)
+    $end            reduce using rule 23 (KeyCode -> C .)
+
+
+state 50
+
+    (24) KeyCode -> D .
+
+    JUMP            reduce using rule 24 (KeyCode -> D .)
+    DASH            reduce using rule 24 (KeyCode -> D .)
+    JETPACK         reduce using rule 24 (KeyCode -> D .)
+    $end            reduce using rule 24 (KeyCode -> D .)
+
+
+state 51
+
+    (25) KeyCode -> E .
+
+    JUMP            reduce using rule 25 (KeyCode -> E .)
+    DASH            reduce using rule 25 (KeyCode -> E .)
+    JETPACK         reduce using rule 25 (KeyCode -> E .)
+    $end            reduce using rule 25 (KeyCode -> E .)
+
+
+state 52
+
+    (26) KeyCode -> F .
+
+    JUMP            reduce using rule 26 (KeyCode -> F .)
+    DASH            reduce using rule 26 (KeyCode -> F .)
+    JETPACK         reduce using rule 26 (KeyCode -> F .)
+    $end            reduce using rule 26 (KeyCode -> F .)
+
+
+state 53
+
+    (27) KeyCode -> G .
+
+    JUMP            reduce using rule 27 (KeyCode -> G .)
+    DASH            reduce using rule 27 (KeyCode -> G .)
+    JETPACK         reduce using rule 27 (KeyCode -> G .)
+    $end            reduce using rule 27 (KeyCode -> G .)
+
+
+state 54
+
+    (28) KeyCode -> H .
+
+    JUMP            reduce using rule 28 (KeyCode -> H .)
+    DASH            reduce using rule 28 (KeyCode -> H .)
+    JETPACK         reduce using rule 28 (KeyCode -> H .)
+    $end            reduce using rule 28 (KeyCode -> H .)
+
+
+state 55
+
+    (29) KeyCode -> I .
+
+    JUMP            reduce using rule 29 (KeyCode -> I .)
+    DASH            reduce using rule 29 (KeyCode -> I .)
+    JETPACK         reduce using rule 29 (KeyCode -> I .)
+    $end            reduce using rule 29 (KeyCode -> I .)
+
+
+state 56
+
+    (30) KeyCode -> J .
+
+    JUMP            reduce using rule 30 (KeyCode -> J .)
+    DASH            reduce using rule 30 (KeyCode -> J .)
+    JETPACK         reduce using rule 30 (KeyCode -> J .)
+    $end            reduce using rule 30 (KeyCode -> J .)
+
+
+state 57
+
+    (31) KeyCode -> K .
+
+    JUMP            reduce using rule 31 (KeyCode -> K .)
+    DASH            reduce using rule 31 (KeyCode -> K .)
+    JETPACK         reduce using rule 31 (KeyCode -> K .)
+    $end            reduce using rule 31 (KeyCode -> K .)
+
+
+state 58
+
+    (32) KeyCode -> L .
+
+    JUMP            reduce using rule 32 (KeyCode -> L .)
+    DASH            reduce using rule 32 (KeyCode -> L .)
+    JETPACK         reduce using rule 32 (KeyCode -> L .)
+    $end            reduce using rule 32 (KeyCode -> L .)
+
+
+state 59
+
+    (33) KeyCode -> M .
+
+    JUMP            reduce using rule 33 (KeyCode -> M .)
+    DASH            reduce using rule 33 (KeyCode -> M .)
+    JETPACK         reduce using rule 33 (KeyCode -> M .)
+    $end            reduce using rule 33 (KeyCode -> M .)
+
+
+state 60
+
+    (34) KeyCode -> N .
+
+    JUMP            reduce using rule 34 (KeyCode -> N .)
+    DASH            reduce using rule 34 (KeyCode -> N .)
+    JETPACK         reduce using rule 34 (KeyCode -> N .)
+    $end            reduce using rule 34 (KeyCode -> N .)
+
+
+state 61
+
+    (35) KeyCode -> O .
+
+    JUMP            reduce using rule 35 (KeyCode -> O .)
+    DASH            reduce using rule 35 (KeyCode -> O .)
+    JETPACK         reduce using rule 35 (KeyCode -> O .)
+    $end            reduce using rule 35 (KeyCode -> O .)
+
+
+state 62
+
+    (36) KeyCode -> P .
+
+    JUMP            reduce using rule 36 (KeyCode -> P .)
+    DASH            reduce using rule 36 (KeyCode -> P .)
+    JETPACK         reduce using rule 36 (KeyCode -> P .)
+    $end            reduce using rule 36 (KeyCode -> P .)
+
+
+state 63
+
+    (37) KeyCode -> Q .
+
+    JUMP            reduce using rule 37 (KeyCode -> Q .)
+    DASH            reduce using rule 37 (KeyCode -> Q .)
+    JETPACK         reduce using rule 37 (KeyCode -> Q .)
+    $end            reduce using rule 37 (KeyCode -> Q .)
+
+
+state 64
+
+    (38) KeyCode -> R .
+
+    JUMP            reduce using rule 38 (KeyCode -> R .)
+    DASH            reduce using rule 38 (KeyCode -> R .)
+    JETPACK         reduce using rule 38 (KeyCode -> R .)
+    $end            reduce using rule 38 (KeyCode -> R .)
+
+
+state 65
+
+    (39) KeyCode -> S .
+
+    JUMP            reduce using rule 39 (KeyCode -> S .)
+    DASH            reduce using rule 39 (KeyCode -> S .)
+    JETPACK         reduce using rule 39 (KeyCode -> S .)
+    $end            reduce using rule 39 (KeyCode -> S .)
+
+
+state 66
+
+    (40) KeyCode -> T .
+
+    JUMP            reduce using rule 40 (KeyCode -> T .)
+    DASH            reduce using rule 40 (KeyCode -> T .)
+    JETPACK         reduce using rule 40 (KeyCode -> T .)
+    $end            reduce using rule 40 (KeyCode -> T .)
+
+
+state 67
+
+    (41) KeyCode -> U .
+
+    JUMP            reduce using rule 41 (KeyCode -> U .)
+    DASH            reduce using rule 41 (KeyCode -> U .)
+    JETPACK         reduce using rule 41 (KeyCode -> U .)
+    $end            reduce using rule 41 (KeyCode -> U .)
+
+
+state 68
+
+    (42) KeyCode -> V .
+
+    JUMP            reduce using rule 42 (KeyCode -> V .)
+    DASH            reduce using rule 42 (KeyCode -> V .)
+    JETPACK         reduce using rule 42 (KeyCode -> V .)
+    $end            reduce using rule 42 (KeyCode -> V .)
+
+
+state 69
+
+    (43) KeyCode -> W .
+
+    JUMP            reduce using rule 43 (KeyCode -> W .)
+    DASH            reduce using rule 43 (KeyCode -> W .)
+    JETPACK         reduce using rule 43 (KeyCode -> W .)
+    $end            reduce using rule 43 (KeyCode -> W .)
+
+
+state 70
+
+    (44) KeyCode -> X .
+
+    JUMP            reduce using rule 44 (KeyCode -> X .)
+    DASH            reduce using rule 44 (KeyCode -> X .)
+    JETPACK         reduce using rule 44 (KeyCode -> X .)
+    $end            reduce using rule 44 (KeyCode -> X .)
+
+
+state 71
+
+    (45) KeyCode -> Y .
+
+    JUMP            reduce using rule 45 (KeyCode -> Y .)
+    DASH            reduce using rule 45 (KeyCode -> Y .)
+    JETPACK         reduce using rule 45 (KeyCode -> Y .)
+    $end            reduce using rule 45 (KeyCode -> Y .)
+
+
+state 72
+
+    (46) KeyCode -> Z .
+
+    JUMP            reduce using rule 46 (KeyCode -> Z .)
+    DASH            reduce using rule 46 (KeyCode -> Z .)
+    JETPACK         reduce using rule 46 (KeyCode -> Z .)
+    $end            reduce using rule 46 (KeyCode -> Z .)
+
+
+state 73
+
+    (47) KeyCode -> Backspace .
+
+    JUMP            reduce using rule 47 (KeyCode -> Backspace .)
+    DASH            reduce using rule 47 (KeyCode -> Backspace .)
+    JETPACK         reduce using rule 47 (KeyCode -> Backspace .)
+    $end            reduce using rule 47 (KeyCode -> Backspace .)
+
+
+state 74
+
+    (48) KeyCode -> Tab .
+
+    JUMP            reduce using rule 48 (KeyCode -> Tab .)
+    DASH            reduce using rule 48 (KeyCode -> Tab .)
+    JETPACK         reduce using rule 48 (KeyCode -> Tab .)
+    $end            reduce using rule 48 (KeyCode -> Tab .)
+
+
+state 75
+
+    (49) KeyCode -> SysReq .
+
+    JUMP            reduce using rule 49 (KeyCode -> SysReq .)
+    DASH            reduce using rule 49 (KeyCode -> SysReq .)
+    JETPACK         reduce using rule 49 (KeyCode -> SysReq .)
+    $end            reduce using rule 49 (KeyCode -> SysReq .)
+
+
+state 76
+
+    (50) KeyCode -> Break .
+
+    JUMP            reduce using rule 50 (KeyCode -> Break .)
+    DASH            reduce using rule 50 (KeyCode -> Break .)
+    JETPACK         reduce using rule 50 (KeyCode -> Break .)
+    $end            reduce using rule 50 (KeyCode -> Break .)
+
+
+state 77
+
+    (51) KeyCode -> CapsLock .
+
+    JUMP            reduce using rule 51 (KeyCode -> CapsLock .)
+    DASH            reduce using rule 51 (KeyCode -> CapsLock .)
+    JETPACK         reduce using rule 51 (KeyCode -> CapsLock .)
+    $end            reduce using rule 51 (KeyCode -> CapsLock .)
+
+
+state 78
+
+    (52) KeyCode -> ScrollLock .
+
+    JUMP            reduce using rule 52 (KeyCode -> ScrollLock .)
+    DASH            reduce using rule 52 (KeyCode -> ScrollLock .)
+    JETPACK         reduce using rule 52 (KeyCode -> ScrollLock .)
+    $end            reduce using rule 52 (KeyCode -> ScrollLock .)
+
+
+state 79
+
+    (53) KeyCode -> RightShift .
+
+    JUMP            reduce using rule 53 (KeyCode -> RightShift .)
+    DASH            reduce using rule 53 (KeyCode -> RightShift .)
+    JETPACK         reduce using rule 53 (KeyCode -> RightShift .)
+    $end            reduce using rule 53 (KeyCode -> RightShift .)
+
+
+state 80
+
+    (54) KeyCode -> LeftShift .
+
+    JUMP            reduce using rule 54 (KeyCode -> LeftShift .)
+    DASH            reduce using rule 54 (KeyCode -> LeftShift .)
+    JETPACK         reduce using rule 54 (KeyCode -> LeftShift .)
+    $end            reduce using rule 54 (KeyCode -> LeftShift .)
+
+
+state 81
+
+    (55) KeyCode -> RightControl .
+
+    JUMP            reduce using rule 55 (KeyCode -> RightControl .)
+    DASH            reduce using rule 55 (KeyCode -> RightControl .)
+    JETPACK         reduce using rule 55 (KeyCode -> RightControl .)
+    $end            reduce using rule 55 (KeyCode -> RightControl .)
+
+
+state 82
+
+    (56) KeyCode -> LeftControl .
+
+    JUMP            reduce using rule 56 (KeyCode -> LeftControl .)
+    DASH            reduce using rule 56 (KeyCode -> LeftControl .)
+    JETPACK         reduce using rule 56 (KeyCode -> LeftControl .)
+    $end            reduce using rule 56 (KeyCode -> LeftControl .)
+
+
+state 83
+
+    (57) KeyCode -> RightAlt .
+
+    JUMP            reduce using rule 57 (KeyCode -> RightAlt .)
+    DASH            reduce using rule 57 (KeyCode -> RightAlt .)
+    JETPACK         reduce using rule 57 (KeyCode -> RightAlt .)
+    $end            reduce using rule 57 (KeyCode -> RightAlt .)
+
+
+state 84
+
+    (58) KeyCode -> LeftAlt .
+
+    JUMP            reduce using rule 58 (KeyCode -> LeftAlt .)
+    DASH            reduce using rule 58 (KeyCode -> LeftAlt .)
+    JETPACK         reduce using rule 58 (KeyCode -> LeftAlt .)
+    $end            reduce using rule 58 (KeyCode -> LeftAlt .)
+
+
+state 85
+
+    (59) KeyCode -> RightCommand .
+
+    JUMP            reduce using rule 59 (KeyCode -> RightCommand .)
+    DASH            reduce using rule 59 (KeyCode -> RightCommand .)
+    JETPACK         reduce using rule 59 (KeyCode -> RightCommand .)
+    $end            reduce using rule 59 (KeyCode -> RightCommand .)
+
+
+state 86
+
+    (60) KeyCode -> RightApple .
+
+    JUMP            reduce using rule 60 (KeyCode -> RightApple .)
+    DASH            reduce using rule 60 (KeyCode -> RightApple .)
+    JETPACK         reduce using rule 60 (KeyCode -> RightApple .)
+    $end            reduce using rule 60 (KeyCode -> RightApple .)
+
+
+state 87
+
+    (61) KeyCode -> LeftCommand .
+
+    JUMP            reduce using rule 61 (KeyCode -> LeftCommand .)
+    DASH            reduce using rule 61 (KeyCode -> LeftCommand .)
+    JETPACK         reduce using rule 61 (KeyCode -> LeftCommand .)
+    $end            reduce using rule 61 (KeyCode -> LeftCommand .)
+
+
+state 88
+
+    (62) KeyCode -> LeftWindows .
+
+    JUMP            reduce using rule 62 (KeyCode -> LeftWindows .)
+    DASH            reduce using rule 62 (KeyCode -> LeftWindows .)
+    JETPACK         reduce using rule 62 (KeyCode -> LeftWindows .)
+    $end            reduce using rule 62 (KeyCode -> LeftWindows .)
+
+
+state 89
+
+    (63) KeyCode -> RightWindows .
+
+    JUMP            reduce using rule 63 (KeyCode -> RightWindows .)
+    DASH            reduce using rule 63 (KeyCode -> RightWindows .)
+    JETPACK         reduce using rule 63 (KeyCode -> RightWindows .)
+    $end            reduce using rule 63 (KeyCode -> RightWindows .)
+
+
+state 90
+
+    (64) KeyCode -> AltGr .
+
+    JUMP            reduce using rule 64 (KeyCode -> AltGr .)
+    DASH            reduce using rule 64 (KeyCode -> AltGr .)
+    JETPACK         reduce using rule 64 (KeyCode -> AltGr .)
+    $end            reduce using rule 64 (KeyCode -> AltGr .)
+
+
+state 91
+
+    (65) KeyCode -> Help .
+
+    JUMP            reduce using rule 65 (KeyCode -> Help .)
+    DASH            reduce using rule 65 (KeyCode -> Help .)
+    JETPACK         reduce using rule 65 (KeyCode -> Help .)
+    $end            reduce using rule 65 (KeyCode -> Help .)
+
+
+state 92
+
+    (66) KeyCode -> Print .
+
+    JUMP            reduce using rule 66 (KeyCode -> Print .)
+    DASH            reduce using rule 66 (KeyCode -> Print .)
+    JETPACK         reduce using rule 66 (KeyCode -> Print .)
+    $end            reduce using rule 66 (KeyCode -> Print .)
+
+
+state 93
+
+    (67) KeyCode -> Clear .
+
+    JUMP            reduce using rule 67 (KeyCode -> Clear .)
+    DASH            reduce using rule 67 (KeyCode -> Clear .)
+    JETPACK         reduce using rule 67 (KeyCode -> Clear .)
+    $end            reduce using rule 67 (KeyCode -> Clear .)
+
+
+state 94
+
+    (68) KeyCode -> Return .
+
+    JUMP            reduce using rule 68 (KeyCode -> Return .)
+    DASH            reduce using rule 68 (KeyCode -> Return .)
+    JETPACK         reduce using rule 68 (KeyCode -> Return .)
+    $end            reduce using rule 68 (KeyCode -> Return .)
+
+
+state 95
+
+    (69) KeyCode -> Pause .
+
+    JUMP            reduce using rule 69 (KeyCode -> Pause .)
+    DASH            reduce using rule 69 (KeyCode -> Pause .)
+    JETPACK         reduce using rule 69 (KeyCode -> Pause .)
+    $end            reduce using rule 69 (KeyCode -> Pause .)
+
+
+state 96
+
+    (70) KeyCode -> Escape .
+
+    JUMP            reduce using rule 70 (KeyCode -> Escape .)
+    DASH            reduce using rule 70 (KeyCode -> Escape .)
+    JETPACK         reduce using rule 70 (KeyCode -> Escape .)
+    $end            reduce using rule 70 (KeyCode -> Escape .)
+
+
+state 97
+
+    (71) KeyCode -> Space .
+
+    JUMP            reduce using rule 71 (KeyCode -> Space .)
+    DASH            reduce using rule 71 (KeyCode -> Space .)
+    JETPACK         reduce using rule 71 (KeyCode -> Space .)
+    $end            reduce using rule 71 (KeyCode -> Space .)
+
+
+state 98
+
+    (72) KeyCode -> Exclaim .
+
+    JUMP            reduce using rule 72 (KeyCode -> Exclaim .)
+    DASH            reduce using rule 72 (KeyCode -> Exclaim .)
+    JETPACK         reduce using rule 72 (KeyCode -> Exclaim .)
+    $end            reduce using rule 72 (KeyCode -> Exclaim .)
+
+
+state 99
+
+    (73) KeyCode -> DoubleQuote .
+
+    JUMP            reduce using rule 73 (KeyCode -> DoubleQuote .)
+    DASH            reduce using rule 73 (KeyCode -> DoubleQuote .)
+    JETPACK         reduce using rule 73 (KeyCode -> DoubleQuote .)
+    $end            reduce using rule 73 (KeyCode -> DoubleQuote .)
+
+
+state 100
+
+    (74) KeyCode -> Hash .
+
+    JUMP            reduce using rule 74 (KeyCode -> Hash .)
+    DASH            reduce using rule 74 (KeyCode -> Hash .)
+    JETPACK         reduce using rule 74 (KeyCode -> Hash .)
+    $end            reduce using rule 74 (KeyCode -> Hash .)
+
+
+state 101
+
+    (75) KeyCode -> Dollar .
+
+    JUMP            reduce using rule 75 (KeyCode -> Dollar .)
+    DASH            reduce using rule 75 (KeyCode -> Dollar .)
+    JETPACK         reduce using rule 75 (KeyCode -> Dollar .)
+    $end            reduce using rule 75 (KeyCode -> Dollar .)
+
+
+state 102
+
+    (76) KeyCode -> Ampersand .
+
+    JUMP            reduce using rule 76 (KeyCode -> Ampersand .)
+    DASH            reduce using rule 76 (KeyCode -> Ampersand .)
+    JETPACK         reduce using rule 76 (KeyCode -> Ampersand .)
+    $end            reduce using rule 76 (KeyCode -> Ampersand .)
+
+
+state 103
+
+    (77) KeyCode -> Quote .
+
+    JUMP            reduce using rule 77 (KeyCode -> Quote .)
+    DASH            reduce using rule 77 (KeyCode -> Quote .)
+    JETPACK         reduce using rule 77 (KeyCode -> Quote .)
+    $end            reduce using rule 77 (KeyCode -> Quote .)
+
+
+state 104
+
+    (78) KeyCode -> LeftParen .
+
+    JUMP            reduce using rule 78 (KeyCode -> LeftParen .)
+    DASH            reduce using rule 78 (KeyCode -> LeftParen .)
+    JETPACK         reduce using rule 78 (KeyCode -> LeftParen .)
+    $end            reduce using rule 78 (KeyCode -> LeftParen .)
+
+
+state 105
+
+    (79) KeyCode -> RightParen .
+
+    JUMP            reduce using rule 79 (KeyCode -> RightParen .)
+    DASH            reduce using rule 79 (KeyCode -> RightParen .)
+    JETPACK         reduce using rule 79 (KeyCode -> RightParen .)
+    $end            reduce using rule 79 (KeyCode -> RightParen .)
+
+
+state 106
+
+    (80) KeyCode -> Asterisk .
+
+    JUMP            reduce using rule 80 (KeyCode -> Asterisk .)
+    DASH            reduce using rule 80 (KeyCode -> Asterisk .)
+    JETPACK         reduce using rule 80 (KeyCode -> Asterisk .)
+    $end            reduce using rule 80 (KeyCode -> Asterisk .)
+
+
+state 107
+
+    (81) KeyCode -> Plus .
+
+    JUMP            reduce using rule 81 (KeyCode -> Plus .)
+    DASH            reduce using rule 81 (KeyCode -> Plus .)
+    JETPACK         reduce using rule 81 (KeyCode -> Plus .)
+    $end            reduce using rule 81 (KeyCode -> Plus .)
+
+
+state 108
+
+    (82) KeyCode -> Comma .
+
+    JUMP            reduce using rule 82 (KeyCode -> Comma .)
+    DASH            reduce using rule 82 (KeyCode -> Comma .)
+    JETPACK         reduce using rule 82 (KeyCode -> Comma .)
+    $end            reduce using rule 82 (KeyCode -> Comma .)
+
+
+state 109
+
+    (83) KeyCode -> Minus .
+
+    JUMP            reduce using rule 83 (KeyCode -> Minus .)
+    DASH            reduce using rule 83 (KeyCode -> Minus .)
+    JETPACK         reduce using rule 83 (KeyCode -> Minus .)
+    $end            reduce using rule 83 (KeyCode -> Minus .)
+
+
+state 110
+
+    (84) KeyCode -> Period .
+
+    JUMP            reduce using rule 84 (KeyCode -> Period .)
+    DASH            reduce using rule 84 (KeyCode -> Period .)
+    JETPACK         reduce using rule 84 (KeyCode -> Period .)
+    $end            reduce using rule 84 (KeyCode -> Period .)
+
+
+state 111
+
+    (85) KeyCode -> Slash .
+
+    JUMP            reduce using rule 85 (KeyCode -> Slash .)
+    DASH            reduce using rule 85 (KeyCode -> Slash .)
+    JETPACK         reduce using rule 85 (KeyCode -> Slash .)
+    $end            reduce using rule 85 (KeyCode -> Slash .)
+
+
+state 112
+
+    (86) KeyCode -> Colon .
+
+    JUMP            reduce using rule 86 (KeyCode -> Colon .)
+    DASH            reduce using rule 86 (KeyCode -> Colon .)
+    JETPACK         reduce using rule 86 (KeyCode -> Colon .)
+    $end            reduce using rule 86 (KeyCode -> Colon .)
+
+
+state 113
+
+    (87) KeyCode -> Semicolon .
+
+    JUMP            reduce using rule 87 (KeyCode -> Semicolon .)
+    DASH            reduce using rule 87 (KeyCode -> Semicolon .)
+    JETPACK         reduce using rule 87 (KeyCode -> Semicolon .)
+    $end            reduce using rule 87 (KeyCode -> Semicolon .)
+
+
+state 114
+
+    (88) KeyCode -> Less .
+
+    JUMP            reduce using rule 88 (KeyCode -> Less .)
+    DASH            reduce using rule 88 (KeyCode -> Less .)
+    JETPACK         reduce using rule 88 (KeyCode -> Less .)
+    $end            reduce using rule 88 (KeyCode -> Less .)
+
+
+state 115
+
+    (89) KeyCode -> Equals .
+
+    JUMP            reduce using rule 89 (KeyCode -> Equals .)
+    DASH            reduce using rule 89 (KeyCode -> Equals .)
+    JETPACK         reduce using rule 89 (KeyCode -> Equals .)
+    $end            reduce using rule 89 (KeyCode -> Equals .)
+
+
+state 116
+
+    (90) KeyCode -> Greater .
+
+    JUMP            reduce using rule 90 (KeyCode -> Greater .)
+    DASH            reduce using rule 90 (KeyCode -> Greater .)
+    JETPACK         reduce using rule 90 (KeyCode -> Greater .)
+    $end            reduce using rule 90 (KeyCode -> Greater .)
+
+
+state 117
+
+    (91) KeyCode -> Question .
+
+    JUMP            reduce using rule 91 (KeyCode -> Question .)
+    DASH            reduce using rule 91 (KeyCode -> Question .)
+    JETPACK         reduce using rule 91 (KeyCode -> Question .)
+    $end            reduce using rule 91 (KeyCode -> Question .)
+
+
+state 118
+
+    (92) KeyCode -> At .
+
+    JUMP            reduce using rule 92 (KeyCode -> At .)
+    DASH            reduce using rule 92 (KeyCode -> At .)
+    JETPACK         reduce using rule 92 (KeyCode -> At .)
+    $end            reduce using rule 92 (KeyCode -> At .)
+
+
+state 119
+
+    (93) KeyCode -> LeftBracket .
+
+    JUMP            reduce using rule 93 (KeyCode -> LeftBracket .)
+    DASH            reduce using rule 93 (KeyCode -> LeftBracket .)
+    JETPACK         reduce using rule 93 (KeyCode -> LeftBracket .)
+    $end            reduce using rule 93 (KeyCode -> LeftBracket .)
+
+
+state 120
+
+    (94) KeyCode -> Backslash .
+
+    JUMP            reduce using rule 94 (KeyCode -> Backslash .)
+    DASH            reduce using rule 94 (KeyCode -> Backslash .)
+    JETPACK         reduce using rule 94 (KeyCode -> Backslash .)
+    $end            reduce using rule 94 (KeyCode -> Backslash .)
+
+
+state 121
+
+    (95) KeyCode -> RightBracket .
+
+    JUMP            reduce using rule 95 (KeyCode -> RightBracket .)
+    DASH            reduce using rule 95 (KeyCode -> RightBracket .)
+    JETPACK         reduce using rule 95 (KeyCode -> RightBracket .)
+    $end            reduce using rule 95 (KeyCode -> RightBracket .)
+
+
+state 122
+
+    (96) KeyCode -> Caret .
+
+    JUMP            reduce using rule 96 (KeyCode -> Caret .)
+    DASH            reduce using rule 96 (KeyCode -> Caret .)
+    JETPACK         reduce using rule 96 (KeyCode -> Caret .)
+    $end            reduce using rule 96 (KeyCode -> Caret .)
+
+
+state 123
+
+    (97) KeyCode -> Underscore .
+
+    JUMP            reduce using rule 97 (KeyCode -> Underscore .)
+    DASH            reduce using rule 97 (KeyCode -> Underscore .)
+    JETPACK         reduce using rule 97 (KeyCode -> Underscore .)
+    $end            reduce using rule 97 (KeyCode -> Underscore .)
+
+
+state 124
+
+    (98) KeyCode -> BackQuote .
+
+    JUMP            reduce using rule 98 (KeyCode -> BackQuote .)
+    DASH            reduce using rule 98 (KeyCode -> BackQuote .)
+    JETPACK         reduce using rule 98 (KeyCode -> BackQuote .)
+    $end            reduce using rule 98 (KeyCode -> BackQuote .)
+
+
+state 125
+
+    (101) Dash -> DASH EQUALS KeyCode .
+    (102) Dash -> DASH EQUALS KeyCode . Action
+    (17) Action -> . Jump
+    (18) Action -> . Dash
+    (19) Action -> . JetPack
+    (99) Jump -> . JUMP EQUALS KeyCode
+    (100) Jump -> . JUMP EQUALS KeyCode Action
+    (101) Dash -> . DASH EQUALS KeyCode
+    (102) Dash -> . DASH EQUALS KeyCode Action
+    (103) JetPack -> . JETPACK EQUALS KeyCode
+    (104) JetPack -> . JETPACK EQUALS KeyCode Action
+
+    $end            reduce using rule 101 (Dash -> DASH EQUALS KeyCode .)
+    JUMP            shift and go to state 35
+    DASH            shift and go to state 36
+    JETPACK         shift and go to state 37
+
+    Action                         shift and go to state 129
+    Jump                           shift and go to state 32
+    Dash                           shift and go to state 33
+    JetPack                        shift and go to state 34
+
+state 126
+
+    (103) JetPack -> JETPACK EQUALS KeyCode .
+    (104) JetPack -> JETPACK EQUALS KeyCode . Action
+    (17) Action -> . Jump
+    (18) Action -> . Dash
+    (19) Action -> . JetPack
+    (99) Jump -> . JUMP EQUALS KeyCode
+    (100) Jump -> . JUMP EQUALS KeyCode Action
+    (101) Dash -> . DASH EQUALS KeyCode
+    (102) Dash -> . DASH EQUALS KeyCode Action
+    (103) JetPack -> . JETPACK EQUALS KeyCode
+    (104) JetPack -> . JETPACK EQUALS KeyCode Action
+
+    $end            reduce using rule 103 (JetPack -> JETPACK EQUALS KeyCode .)
+    JUMP            shift and go to state 35
+    DASH            shift and go to state 36
+    JETPACK         shift and go to state 37
+
+    Action                         shift and go to state 130
+    Jump                           shift and go to state 32
+    Dash                           shift and go to state 33
+    JetPack                        shift and go to state 34
+
+state 127
+
+    (9) Movement -> ID EQUALS Direction ID EQUALS Direction . ID EQUALS Direction
+
+    ID              shift and go to state 131
+
+
+state 128
+
+    (100) Jump -> JUMP EQUALS KeyCode Action .
+
+    $end            reduce using rule 100 (Jump -> JUMP EQUALS KeyCode Action .)
+
+
+state 129
+
+    (102) Dash -> DASH EQUALS KeyCode Action .
+
+    $end            reduce using rule 102 (Dash -> DASH EQUALS KeyCode Action .)
+
+
+state 130
+
+    (104) JetPack -> JETPACK EQUALS KeyCode Action .
+
+    $end            reduce using rule 104 (JetPack -> JETPACK EQUALS KeyCode Action .)
+
+
+state 131
+
+    (9) Movement -> ID EQUALS Direction ID EQUALS Direction ID . EQUALS Direction
+
+    EQUALS          shift and go to state 132
+
+
+state 132
+
+    (9) Movement -> ID EQUALS Direction ID EQUALS Direction ID EQUALS . Direction
+    (10) Direction -> . Horizontal
+    (11) Direction -> . NONE
+    (12) Direction -> . Vertical
+
+    Horizontal      shift and go to state 28
+    NONE            shift and go to state 29
+    Vertical        shift and go to state 30
+
+    Direction                      shift and go to state 133
+
+state 133
+
+    (9) Movement -> ID EQUALS Direction ID EQUALS Direction ID EQUALS Direction .
+
+    $end            reduce using rule 9 (Movement -> ID EQUALS Direction ID EQUALS Direction ID EQUALS Direction .)
+    Force           reduce using rule 9 (Movement -> ID EQUALS Direction ID EQUALS Direction ID EQUALS Direction .)
+    Impulse         reduce using rule 9 (Movement -> ID EQUALS Direction ID EQUALS Direction ID EQUALS Direction .)
+    Acceleration    reduce using rule 9 (Movement -> ID EQUALS Direction ID EQUALS Direction ID EQUALS Direction .)
+    NONE            reduce using rule 9 (Movement -> ID EQUALS Direction ID EQUALS Direction ID EQUALS Direction .)
 
