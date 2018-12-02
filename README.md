@@ -23,29 +23,30 @@ PuppetScript has the purpose of bringing simplicity to its users in order for th
 ## Approach
  <a href="https://imgur.com/UzlzF7n"><img src="https://i.imgur.com/UzlzF7n.png" title="source: imgur.com" /></a>
 
-##### The PLProject Architecture works the following way:
+##### The PuppetScript Architecture works the following way:
 
-1. First the User writes code in the PuppetScript Language.
+1. First the user writes code in Unity in the PuppetScript Language.
 2. The user runs the PuppetScript translator, which reads the PuppetScript code and is sends it to the PLY Lexer which tokenizes the code and then to the PLY parser which parses it.
 3. After all data has been obtained from the code, it is sent to the Python intermediate code which categorizes and translates it into C# source code. 
-4.
-...
+4. The C# code creates the player controller according to the specifications provided.
+5. When the aforementioned is ready, it is compiled.
+6. And finally, the user is able to use their newly created PuppetScript script to control their character using Unity!
 
 
 # Learning PuppetScript!
 
 ## Video Tutorial
 
-Following is a video tutorial on how to install and use the PLProject translator:
+Following is a video tutorial on how to install and use the PuppetScript translator:
 Youtube link or embed goes here
 
 ## Language tutorial
 
-Click [here](https://github.com/jeanrodriguez27/PLProject/wiki/Language-Tutorial) to go to the Language Tutorial.
+Click [here](https://github.com/jeanrodriguez27/PuppetScript/wiki/Language-Tutorial) to go to the Language Tutorial.
 
 ## Reference Manual
 
-Click [here](https://github.com/jeanrodriguez27/PLProject/wiki/Reference-Manual) to go to the Reference Manual.
+Click [here](https://github.com/jeanrodriguez27/PuppetScript/wiki/Reference-Manual) to go to the Reference Manual.
 
 
 
