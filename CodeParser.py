@@ -24,25 +24,31 @@ def p_simple_script(p):
 
 def p_rigid_script(p):
     'RigidBody : RIGIDBODY SpeedId  Movement  ForceMode  Action'
-    gen.set_scripttype('RIGIDBODY')
-    gen.initial_rigid_body(p[2])
     x = p[3]
-    gen.move(x[0], x[1] ,x[2])
-    gen.addForce(p[4])
-    print(len(p[5]))
-    y = p[5]
-    print(y[1])
     f = [p[1]]
     f.extend( [ p[2], p[3], p[4], p[5] ] )
     print (f)
     p[0] = [f]
+    gen.set_scripttype('RIGIDBODY')
+    gen.initial_rigid_body(p[2])
+    gen.move(x[0], x[1], x[2])
+    gen.addForce(p[4])
+    gen.set_Action(p[5])
+    gen.end_rigidbody()
 
 
 
 def p_chraracter_controller_script(p):
     'CharacterController : CHARACTERCONTROLLER SpeedId GravityId Movement  ForceMode  Action'
     p[0] = (p[1], p[2], p[3], p[4], p[5], p[6])
-    
+    x = p[4]
+    f = [p[1]]
+    f.extend([p[2], p[3], p[4], p[5]])
+    print(f)
+    gen.set_scripttype('CHARACTERCONTROLLER')
+    gen.initial_char_cont(p[2], p[3])
+    gen.move(x[0], x[1], x[2])
+
 
 
 def p_speed_Id(p):
@@ -55,7 +61,7 @@ def p_speed_Id(p):
 
 def p_gravity_Id(p):
     'GravityId : Gravity EQUALS Float'
-    p[0]=(p[1], p[2], p[3])
+    p[0] = (p[3])
   
 	
 	
