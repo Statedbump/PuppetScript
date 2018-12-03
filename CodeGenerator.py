@@ -7,6 +7,7 @@ def set_scripttype(sct):
     global type
     type = sct
     print(type)
+    
 def initial_simple(speed):
     print("using System.Collections;\n" +
             "using System.Collections.Generic;\n" +
@@ -19,15 +20,17 @@ def initial_simple(speed):
             "speed = "+speed+"; \n"+
             "time = Time.deltaTime; \n } \n")
 
-def initial_rigid_body(speed):
+def initial_rigid_body(speed,jump):
     print ("using System.Collections;\n" )
     print ("using System.Collections.Generic;\n" )
     print ( "using UnityEngine;\n" )
     print ( "public class RigidMovement:MonoBehaviour \n { \n" )
     print ( "float _speed = " + speed + "f;\n")
+    print ( "float _jump = " + jump + "f;\n")
+    
 
 
-def initial_char_cont(speed,gravity):
+def initial_char_cont(speed,gravity,jump):
     print ( "using System.Collections;\n" +
             "using System.Collections.Generic;\n" +
             "using UnityEngine;\n" +
@@ -35,7 +38,7 @@ def initial_char_cont(speed,gravity):
             "public class PlayerMovement : MonoBehaviour {\n" +
             "\n" +
             "private float speed = " + speed + "f;\n" +
-            "private float jump = 1f;\n" +
+            "private float jump = " + jump + "f;\n" +
             "private float gravity = " + gravity + "f;\n" +
             "float deltaX; \n float deltaZ; \n" +
             "private Vector3 movement = Vector3.zero;\n" +
@@ -164,7 +167,7 @@ def end_rigidbody():
             "return Physics.Raycast(transform.position, Vector3.down, dist_to_ground);\n" +            "}\n" \
             "\n" +
             "void jump() {\n" +
-            "_rigidBody.AddForce(new Vector3(0,1f,0), ForceMode.Impulse);\n" +
+            "_rigidBody.AddForce(new Vector3(0, _jump,0), ForceMode.Impulse);\n" +
             "}\n" +
             "void dash(Vector3 moveVector) \n { \n "+
             "_rigidBody.AddForce(moveVector, ForceMode.VelocityChange); \n } \n } \n" )
