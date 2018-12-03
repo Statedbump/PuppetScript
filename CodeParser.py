@@ -9,8 +9,8 @@ action_args = 0
 d_args = 0
 j_args = 0
 jet_args = 0
-keyList =[]
-
+keyList = []
+noneList = []
 def p_script_type(p):
     '''script : Simple
                 | RigidBody
