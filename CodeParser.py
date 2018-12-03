@@ -17,9 +17,13 @@ def p_script_type(p):
                 | CharacterController'''
 
 def p_simple_script(p):
- 'Simple : SIMPLE SpeedId Movement'
- p[0] = (p[1], p[2], p[3] )
-
+    'Simple : SIMPLE SpeedId Movement'
+    p[0] = (p[1], p[2], p[3] )
+    x =p[3]
+    gen.set_scripttype('SIMPLE')
+    gen.initial_simple(p[2])
+    gen.move(x[0], x[1], x[2])
+    gen.end_simple()
    
 
 def p_rigid_script(p):
@@ -39,15 +43,17 @@ def p_rigid_script(p):
 
 
 def p_chraracter_controller_script(p):
-    'CharacterController : CHARACTERCONTROLLER SpeedId GravityId Movement  ForceMode  Action'
-    p[0] = (p[1], p[2], p[3], p[4], p[5], p[6])
+    'CharacterController : CHARACTERCONTROLLER SpeedId GravityId Movement  Action'
     x = p[4]
     f = [p[1]]
     f.extend([p[2], p[3], p[4], p[5]])
+    p[0] = f
     print(f)
     gen.set_scripttype('CHARACTERCONTROLLER')
     gen.initial_char_cont(p[2], p[3])
     gen.move(x[0], x[1], x[2])
+    gen.set_Action(p[5])
+    gen.end_char_cont()
 
 
 
@@ -68,7 +74,6 @@ def p_gravity_Id(p):
 def p_movement_rule(p):
     #First move is in x, followed by y , endind with z
     'Movement : ID EQUALS Direction ID EQUALS Direction  ID EQUALS Direction'
-
     p[0] = p[3], p[6], p[9]
 
 

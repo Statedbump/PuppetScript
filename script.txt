@@ -1,10 +1,5 @@
-CHARACTERCONTROLLER
+SIMPLE
 Speed = 10.0
-Gravity = 0.1
 movex = Horizontal
 movey = NONE
 movez = Vertical
-Acceleration
-JUMP = Key_Space
-DASH = Key_A
-JETPACK = Key_S
