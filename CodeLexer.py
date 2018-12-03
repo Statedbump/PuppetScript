@@ -25,7 +25,7 @@ tokens = [
 	
 	
 	#Special iD's 
-	'Speed','Gravity',
+	'Speed','Gravity','Jump',
 	
 
 	#Dirrection
@@ -116,7 +116,10 @@ def t_Speed(t):
     r'Speed'
     t.type = 'Speed'
     return t
-
+def t_Jump(t):
+    r'Jump'
+    t.type = 'Jump'
+    return t
 def t_Vertical(t):
     r' Vertical '
     t.value = 'Vertical'
@@ -129,7 +132,6 @@ def t_NONE(t):
 
 
 	#Actions
-	
 def t_JUMP(t):
     r'JUMP'
     t.value = 'JUMP'
@@ -517,12 +519,12 @@ def t_error(t):
 lexer = lex.lex()
 
 try:
-   ChromeItSource = open("script.txt", 'r')
+   PuppetScriptSource = open("script.txt", 'r')
 except IOError:
    print("Error opening file")
    exit()
 
-fileText = ChromeItSource.read()
+fileText = PuppetScriptSource.read()
 lexer.input(fileText)
 
  # Tokenize
