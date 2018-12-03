@@ -27,7 +27,7 @@ def p_simple_script(p):
    
 
 def p_rigid_script(p):
-    'RigidBody : RIGIDBODY SpeedId JumpId  Movement  ForceMode  Action'
+    'RigidBody : RIGIDBODY SpeedId  Movement  ForceMode  Action'
     x = p[3]
     f = [p[1]]
     f.extend( [ p[2], p[3], p[4], p[5] ] )
@@ -43,7 +43,7 @@ def p_rigid_script(p):
 
 
 def p_chraracter_controller_script(p):
-    'CharacterController : CHARACTERCONTROLLER SpeedId GravityId JumpId Movement  Action'
+    'CharacterController : CHARACTERCONTROLLER SpeedId GravityId Movement  Action'
     x = p[4]
     f = [p[1]]
     f.extend([p[2], p[3], p[4], p[5]])
@@ -62,10 +62,7 @@ def p_speed_Id(p):
     print(type)
     p[0] = (p[3])
 
-def p_jump_Id(p):
-    'JumpId : Jump EQUALS Float'
-    print(type)
-    p[0] = (p[3])    
+    
 
 
 def p_gravity_Id(p):
@@ -268,13 +265,13 @@ def check_repeated_keys(keyList):
 def translate(s):
 
     try:
-        PuppetScriptCode = open(s, 'r')
+        BotifulCode = open(s, 'r')
     except IOError:
         print("Error opening File")
         exit()
 
-    fileScript = PuppetScriptCode.read()
+    fileScript = BotifulCode.read()
     parser = yacc.yacc()
     res = parser.parse(fileScript)
-    print (type)
+    gen.upload()
 

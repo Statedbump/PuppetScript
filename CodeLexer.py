@@ -25,7 +25,7 @@ tokens = [
 	
 	
 	#Special iD's 
-	'Speed','Gravity','Jump',
+	'Speed','Gravity',
 	
 
 	#Dirrection
@@ -116,10 +116,7 @@ def t_Speed(t):
     r'Speed'
     t.type = 'Speed'
     return t
-def t_Jump(t):
-    r'Jump'
-    t.type = 'Jump'
-    return t
+
 def t_Vertical(t):
     r' Vertical '
     t.value = 'Vertical'

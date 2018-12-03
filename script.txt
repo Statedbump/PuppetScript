@@ -1,5 +1,7 @@
-SIMPLE
+CHARACTERCONTROLLER
 Speed = 10.0
+Gravity = 0.1
 movex = Horizontal
 movey = NONE
 movez = Vertical
+JUMP = Key_Space

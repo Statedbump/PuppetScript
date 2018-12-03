@@ -19,20 +19,21 @@ def initial_simple(speed):
             "void Start() \n { \n" + \
             "speed = " + speed + "; \n" + \
             "time = Time.deltaTime; \n } \n"
-    code.append(block)
+    if code != block:
+        code.append(block)
 
 
-def initial_rigid_body(speed, jump):
+def initial_rigid_body(speed):
     block = "using System.Collections;\n" \
             "using System.Collections.Generic;\n" \
             "using UnityEngine;\n" \
             "public class RigidMovement:MonoBehaviour \n { \n" \
-            "float _speed = " + speed + "f;\n" \
-            "float _jump = " + jump + "f;\n"
+            "float _speed = " + speed + "f;\n"
+
     code.append(block)
 
 
-def initial_char_cont(speed, gravity, jump):
+def initial_char_cont(speed, gravity):
     block = "using System.Collections;\n" \
             "using System.Collections.Generic;\n" \
             "using UnityEngine;\n" \
@@ -40,7 +41,7 @@ def initial_char_cont(speed, gravity, jump):
             "public class PlayerMovement : MonoBehaviour {\n" \
             "\n" \
             "private float speed = " + speed + "f;\n" \
-            "private float jump = " + jump + "f;\n" \
+            "private float jump = 1f;\n" \
             "private float gravity = " + gravity + "f;\n" \
             "float deltaX; \n float deltaZ; \n" \
             "private Vector3 movement = Vector3.zero;\n" \
@@ -203,7 +204,8 @@ def upload():
     final_code = code[0]
 
     for block in code:
-        final_code += block
+        if final_code != block:
+            final_code += block
 
     file = open("player_movement.cs", 'w')
     file.write(final_code)
