@@ -1,4 +1,5 @@
 code = []
+
 type
 
 
@@ -175,7 +176,7 @@ def end_rigidbody():
             "_rigidBody.AddForce(new Vector3(0,_jump,0), ForceMode.Impulse);\n" \
             "}\n" \
             "void dash(Vector3 moveVector) \n { \n " \
-            "_rigidBody.AddForce(moveVector, ForceMode.VelocityChange); \n } \n } \n"
+            "_rigidBody.AddForce(moveVector*2f, ForceMode.Force); \n } \n } \n"
     code.append(block)
 
 
@@ -206,7 +207,12 @@ def upload():
     for block in code:
         if final_code != block:
             final_code += block
-
-    file = open("player_movement.cs", 'w')
+    if type == 'RIGIDBODY':
+        file = open("rigidbody_movement.cs", 'w')
+    elif type == 'CHARACTERCONTROLLER':
+        file = open("charactercont_movement.cs", 'w')
+    else:
+        file = open("simple_movement.cs", 'w')
+        
     file.write(final_code)
     file.close()

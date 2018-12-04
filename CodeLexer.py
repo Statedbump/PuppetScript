@@ -70,6 +70,7 @@ tokens = [
     'Caret', 
     'Underscore',
     'BackQuote',
+
 	#Letters
 	'A','B','C','D','E','F','G',
 	'H','I','J','K','L','M','N',
@@ -108,6 +109,7 @@ def t_Horizontal(t):
     r'Horizontal'
     t.type = 'Horizontal'
     return t
+
 def t_Gravity(t):
     r'Gravity'
     t.type = 'Gravity'

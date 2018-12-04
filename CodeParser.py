@@ -11,6 +11,8 @@ j_args = 0
 jet_args = 0
 keyList = []
 noneList = []
+
+
 def p_script_type(p):
     '''script : Simple
                 | RigidBody
@@ -18,8 +20,11 @@ def p_script_type(p):
 
 def p_simple_script(p):
     'Simple : SIMPLE SpeedId Movement'
+
     p[0] = (p[1], p[2], p[3] )
     x =p[3]
+    #if len(noneList) != 1:
+    #    print("Only one of the axis values must be NONE")
     gen.set_scripttype('SIMPLE')
     gen.initial_simple(p[2])
     gen.move(x[0], x[1], x[2])
@@ -29,6 +34,9 @@ def p_simple_script(p):
 def p_rigid_script(p):
     'RigidBody : RIGIDBODY SpeedId  Movement  ForceMode  Action'
     x = p[3]
+    if x[0] == 'NONE' or x[2] == 'NONE' or x[1] != 'NONE':
+        print("Only the y axis must be of NONE value, This is due to gravity affecting the Rigid Body Object")
+        p_error(p)
     f = [p[1]]
     f.extend( [ p[2], p[3], p[4], p[5] ] )
     print (f)
@@ -45,6 +53,9 @@ def p_rigid_script(p):
 def p_chraracter_controller_script(p):
     'CharacterController : CHARACTERCONTROLLER SpeedId GravityId Movement  Action'
     x = p[4]
+    if x[0] == 'NONE' or x[2] == 'NONE' or x[1] != 'NONE':
+        print("Only the y axis must be of NONE value, This is due to gravity affecting the Character Controller Object")
+        p_error(p)
     f = [p[1]]
     f.extend([p[2], p[3], p[4], p[5]])
     p[0] = f
@@ -54,7 +65,7 @@ def p_chraracter_controller_script(p):
     gen.move(x[0], x[1], x[2])
     gen.set_Action(p[5])
     gen.end_char_cont()
-
+    print(noneList)
 
 
 def p_speed_Id(p):
@@ -74,7 +85,18 @@ def p_gravity_Id(p):
 def p_movement_rule(p):
     #First move is in x, followed by y , endind with z
     'Movement : ID EQUALS Direction ID EQUALS Direction  ID EQUALS Direction'
+    if p[3] == p[6] or p[3] == p[9] or p[6] == p[9]:
+        print("Directions must not be repeated")
+        p_error(p)
+
+
     p[0] = p[3], p[6], p[9]
+
+
+
+
+
+
 
 
 
@@ -265,12 +287,12 @@ def check_repeated_keys(keyList):
 def translate(s):
 
     try:
-        BotifulCode = open(s, 'r')
+        PupetScript = open(s, 'r')
     except IOError:
         print("Error opening File")
         exit()
 
-    fileScript = BotifulCode.read()
+    fileScript = PupetScript.read()
     parser = yacc.yacc()
     res = parser.parse(fileScript)
     gen.upload()
