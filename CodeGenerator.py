@@ -223,11 +223,11 @@ def upload():
         if final_code != block:
             final_code += block
     if type == 'RIGIDBODY':
-        file = open("rigidbody_movement.cs", 'w')
+        file = open("RigidMovement.cs", 'w')
     elif type == 'CHARACTERCONTROLLER':
-        file = open("charactercont_movement.cs", 'w')
+        file = open("PlayerMovement.cs", 'w')
     else:
-        file = open("simple_movement.cs", 'w')
+        file = open("SimpleMovement.cs", 'w')
         
     file.write(final_code)
     file.close()
