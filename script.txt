@@ -1,5 +1,7 @@
-SIMPLE
+RIGIDBODY
 Speed = 10.0
-movex = NONE
-movey = Horizontal
+movex = Horizontal
+movey = NONE
 movez = Vertical
+Acceleration
+WALK = Key_W

@@ -106,6 +106,8 @@ def set_Action(actionList):
             jump_action(actionList[i+1])
         elif actionList[i] == 'DASH':
             dash_action(actionList[i+1])
+        elif actionList[i] == 'WALK':
+            walk_action(actionList[i+1])
         else:
             jetpack_action(actionList[i+1])
 
@@ -132,6 +134,19 @@ def dash_action(key):
         block = "if (Input.GetKey(KeyCode."+key+")) \n { \n" \
                 "movement *= 2f;\n } \n"
         code.append(block)
+
+
+def walk_action(key):
+    if type == 'RIGIDBODY':
+        block = "if(Input.GetKey(KeyCode." + key + ")) {\n" \
+              "_rigidBody.AddForce(moveVector*0.5f, ForceMode.Force);\n" \
+              "}\n"
+        code.append(block)
+    if type == 'CHARACTERCONTROLLER':
+        block = "if (Input.GetKey(KeyCode."+key+")) \n { \n" \
+                "movement *= 0.5f;\n } \n"
+        code.append(block)
+
 
 
 def jetpack_action(key):
@@ -167,7 +182,7 @@ def simple_noZ(x, y):
 # Script enders
 
 def end_rigidbody():
-    block = "}\n" \
+    block = "\n" \
             "}\n" \
             "bool isGrounded() {\n" \
             "return Physics.Raycast(transform.position, Vector3.down, dist_to_ground);\n" + "}\n" \

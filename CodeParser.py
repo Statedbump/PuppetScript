@@ -7,6 +7,7 @@ tokens = CodeLexer.tokens
 
 action_args = 0
 d_args = 0
+w_args = 0
 j_args = 0
 jet_args = 0
 keyList = []
@@ -94,12 +95,6 @@ def p_movement_rule(p):
 
 
 
-
-
-
-
-
-
 def p_Direction(p):
     '''Direction : Horizontal
     | NONE
@@ -118,11 +113,12 @@ def p_force_mode(p):
 def p_action(p):
         '''Action : Jump
                   | Dash
-                  | JetPack'''
+                  | JetPack
+                  | Walk'''
         p[0] = p[1]
         global action_args
         action_args += 1
-        if(action_args > 3):
+        if(action_args > 4):
             p_error(p)
 
 
@@ -239,6 +235,24 @@ def p_Dash(p):
     d_args += 1
     if (d_args > 1):
         print ("DASH action can only be called once!!")
+        p_error(p)
+
+    if (len(p) == 4):
+        p[0] = (p[1], p[3])
+    else:
+        f = [p[1], p[3]]
+        f.extend(p[4])
+        p[0] = f
+
+
+def p_Walk(p):
+    '''Walk : WALK EQUALS KeyCode
+            | WALK EQUALS KeyCode Action'''
+
+    global w_args
+    w_args += 1
+    if (w_args > 1):
+        print ("WALK action can only be called once!!")
         p_error(p)
 
     if (len(p) == 4):

@@ -34,7 +34,7 @@ tokens = [
 	'NONE',
 	
 	#Actions
-	'JUMP','DASH','JETPACK',
+	'JUMP','DASH','JETPACK', 'WALK',
 	
 	#Forces
 	'Force','Impulse','Acceleration',
@@ -139,6 +139,12 @@ def t_DASH(t):
     r'DASH'
     t.value = 'DASH'
     return t
+
+def t_WALK(t):
+    r'WALK'
+    t.value = 'WALK'
+    return t
+
 def t_JETPACK(t):
     r'JETPACK'
     t.value = 'JETPACK'
