@@ -37,8 +37,7 @@ PuppetScript has the purpose of bringing simplicity to its users in order for th
 
 ## Video Tutorial
 
-Following is a video tutorial on how to install and use the PuppetScript translator:
-Youtube link or embed goes here
+<iframe width="560" height="315" src="https://www.youtube.com/embed/LJFQkBjePXQ?ecver=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
 ## Language tutorial
 
