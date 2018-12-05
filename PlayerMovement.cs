@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class PlayerMovement : MonoBehaviour {
 
-private float speed = 10.0f;
+private float speed = 1.0f;
 private float jump = 1f;
 private float gravity = 0.1f;
 float deltaX; 
@@ -32,17 +32,13 @@ movement = new Vector3(deltaX, 0, deltaZ);
 movement = transform.TransformDirection(movement);
  
 movement *= speed;
-if (Input.GetKey(KeyCode.Space)) 
+if (Input.GetKey(KeyCode.Space) && charCont.isGrounded) 
  { 
 movement.y = jump; 
  } 
 if (Input.GetKey(KeyCode.LeftShift)) 
  { 
 movement *= 2f;
- } 
-if (Input.GetKey(KeyCode.Z)) 
- { 
-movement *= 0.5f;
  } 
 
 movement.y -= gravity;

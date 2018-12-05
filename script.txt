@@ -1,9 +1,10 @@
-CHARACTERCONTROLLER
+SIMPLE
 Speed = 10.0
-Gravity = 0.1
-movex = Horizontal
-movey = NONE
-movez = Vertical
-JETPACK = Key_Space
-DASH = Key_LeftShift
-WALK = Key_Z
+moveX = Horizontal
+moveY = NONE
+moveZ = Vertical
+
+
+
+
+

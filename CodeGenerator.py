@@ -1,6 +1,6 @@
 code = []
 
-type
+type = ""
 
 
 def set_scripttype(sct):
@@ -18,7 +18,7 @@ def initial_simple(speed):
             "private float speed;\n" + \
             "private float time; \n" + \
             "void Start() \n { \n" + \
-            "speed = " + speed + "; \n" + \
+            "speed = " + speed + "f; \n" + \
             "time = Time.deltaTime; \n } \n"
     if code != block:
         code.append(block)
@@ -28,7 +28,7 @@ def initial_rigid_body(speed):
     block = "using System.Collections;\n" \
             "using System.Collections.Generic;\n" \
             "using UnityEngine;\n" \
-            "public class RigidMovement:MonoBehaviour \n { \n" \
+            "public class RigidMovement: MonoBehaviour \n { \n" \
             "float _speed = " + speed + "f;\n"
 
     code.append(block)
@@ -65,8 +65,8 @@ def move(x, y, z):
     if type == 'RIGIDBODY':
         block = "string _movementX = \"" + x + "\" ; \n" \
                 "string _movementZ = \"" + z + "\" ; \n" \
-                "Rigidbody _rigidBody; \n float _moveX; \n float _moveZ; \n float dist_to_ground = 1f;" \
-                "void Start() \n {" \
+                "Rigidbody _rigidBody; \n float _moveX; \n float _moveZ; \n float dist_to_ground = 1f; \n" \
+                "void Start() \n { \n" \
                 "_rigidBody = this.GetComponent<Rigidbody>(); \n  if (_rigidBody == null) \n { \n " \
                 "Debug.LogError(\"Rigid body could not be found.\"); \n } \n }" \
                 "void Update() \n { \n _moveX = Input.GetAxis(_movementX); \n _moveZ = Input.GetAxis(_movementZ); \n " \
@@ -96,7 +96,7 @@ def move(x, y, z):
 
 
 def addForce(force):
-    block = "rigidBody.AddForce(moveVector,ForceMode."+force+"); \n"
+    block = "_rigidBody.AddForce(moveVector,ForceMode."+force+"); \n"
     code.append(block)
 
 
@@ -163,20 +163,20 @@ def jetpack_action(key):
 # Helpers for Simple movement
 
 def simple_noY(x, z):
-    block = "transform.Translate(speed * Input.GetAxis(" + x + ") * time, 0f, 0f); \n" \
-            "transform.Translate(0f, 0f, speed * Input.GetAxis(" + z + ") * time); \n"
+    block = "transform.Translate(speed * Input.GetAxis(\"" + x + "\") * time, 0f, 0f); \n" \
+            "transform.Translate(0f, 0f, speed * Input.GetAxis(\"" + z + "\") * time); \n"
     code.append(block)
 
 
 def simple_noX(y, z):
-    block = "transform.Translate(0f,speed * Input.GetAxis(" + y + ") * time, 0f); \n" \
-            "transform.Translate(0f, 0f, speed * Input.GetAxis(" + z + ") * time); \n"
+    block = "transform.Translate(0f,speed * Input.GetAxis(\"" + y + "\") * time, 0f); \n" \
+            "transform.Translate(0f, 0f, speed * Input.GetAxis(\"" + z + "\") * time); \n"
     code.append(block)
 
 
 def simple_noZ(x, y):
-    block = "transform.Translate(speed * Input.GetAxis(" + x + ") * time, 0f, 0f); \n" \
-            "transform.Translate(0f,speed * Input.GetAxis(" + y + ") * time, 0f); \n"
+    block = "transform.Translate(speed * Input.GetAxis(\"" + x + "\") * time, 0f, 0f); \n" \
+            "transform.Translate(0f,speed * Input.GetAxis(\"" + y + "\") * time, 0f); \n"
     code.append(block)
 
 # Script enders
@@ -188,7 +188,7 @@ def end_rigidbody():
             "return Physics.Raycast(transform.position, Vector3.down, dist_to_ground);\n" + "}\n" \
             "\n" \
             "void jump() {\n" \
-            "_rigidBody.AddForce(new Vector3(0,_jump,0), ForceMode.Impulse);\n" \
+            "_rigidBody.AddForce(new Vector3(0,1f,0), ForceMode.Impulse);\n" \
             "}\n" \
             "void dash(Vector3 moveVector) \n { \n " \
             "_rigidBody.AddForce(moveVector*2f, ForceMode.Force); \n } \n } \n"
