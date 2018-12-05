@@ -37,7 +37,7 @@ PuppetScript has the purpose of bringing simplicity to its users in order for th
 
 ## Video Tutorial
 
-<iframe width="560" height="315" src="https://www.youtube.com/embed/LJFQkBjePXQ?ecver=1" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+[![Video Tutorial](https://img.youtube.com/vi/LJFQkBjePXQ/0.jpg)](https://www.youtube.com/watch?v=LJFQkBjePXQ)
 
 ## Language tutorial
 
