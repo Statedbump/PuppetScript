@@ -37,7 +37,7 @@ PuppetScript has the purpose of bringing simplicity to its users in order for th
 
 ## Video Tutorial
 
-The following video offers a Tutorial and Basic Explanation of PuppetScript:
+The following video offers a Tutorial and Basic Explanation of PuppetScript's Syntax:
 
 [![Video Tutorial](https://img.youtube.com/vi/lx-hFQ87fn8/0.jpg)](https://www.youtube.com/watch?v=lx-hFQ87fn8)
 
